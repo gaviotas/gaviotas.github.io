@@ -109,5 +109,5 @@ social:
 highlight_name: true
 ---
 
-I am interested in label-efficient learning and scene understanding (\textit{e.g.}, semantic segmentation, object localization) to efficiently extract visual representations for real-world problems.
+I am interested in label-efficient learning and scene understanding (e.g., semantic segmentation, object localization) to efficiently extract visual representations for real-world problems.
 {style="text-align: justify;"}
