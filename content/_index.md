@@ -39,7 +39,7 @@ sections:
   - block: about.biography
     id: about
     content:
-      title: Biography
+      title: ''
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
   # - block: skills
@@ -50,28 +50,28 @@ sections:
   #     username: admin
     # design:
     #   columns: '1'
-  - block: experience
-    content:
-      title: Experience
-      # Date format for experience
-      #   Refer to https://docs.hugoblox.com/customization/#date-format
-      date_format: Jan 2006
-      # Experiences.
-      #   Add/remove as many `experience` items below as you like.
-      #   Required fields are `title`, `company`, and `date_start`.
-      #   Leave `date_end` empty if it's your current employer.
-      #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
-      items:
-        - title: Research Intern
-          company: NAVER AI Lab
-          company_url: https://naver-career.gitbook.io/en/teams/clova-cic
-          company_logo: ''
-          location: California
-          date_start: '2023-07-03'
-          date_end: '2023-12-22'
-          description: Storage-efficient Vision Training
-    design:
-      columns: '2'
+  # - block: experience
+  #   content:
+  #     title: Experience
+  #     # Date format for experience
+  #     #   Refer to https://docs.hugoblox.com/customization/#date-format
+  #     date_format: Jan 2006
+  #     # Experiences.
+  #     #   Add/remove as many `experience` items below as you like.
+  #     #   Required fields are `title`, `company`, and `date_start`.
+  #     #   Leave `date_end` empty if it's your current employer.
+  #     #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
+  #     items:
+  #       - title: Research Intern
+  #         company: NAVER AI Lab
+  #         company_url: https://naver-career.gitbook.io/en/teams/clova-cic
+  #         company_logo: ''
+  #         location: California
+  #         date_start: '2023-07-03'
+  #         date_end: '2023-12-22'
+  #         description: Storage-efficient Vision Training
+  #   design:
+  #     columns: '2'
   # - block: accomplishments
   #   content:
   #     # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.

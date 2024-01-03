@@ -31,6 +31,13 @@ interests:
   - Representation Learning
   - Image Segmentation & Object Localization
 
+interests:
+    - title: Research Intern
+      company: NAVER AI Lab
+      date_start: '2023-07-03'
+      date_end: '2023-12-22'
+      description: Storage-efficient Vision Training
+
 # Education to show in About widget
 education:
   courses:
@@ -40,6 +47,9 @@ education:
     - course: BSc in Computer Science
       institution: Yonsei University
       year: 2012.03 ~ 2019.02
+
+experiences:
+
 
 # Skills
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -95,9 +105,6 @@ social:
   - icon: github
     icon_pack: fab
     link: https://github.com/gaviotas
-  - icon: linkedin
-    icon_pack: fab
-    link: https://www.linkedin.com/in/minhyun-lee-4ba32825b/
   # Link to a PDF of your resume/CV.
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
