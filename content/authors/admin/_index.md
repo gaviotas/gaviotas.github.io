@@ -29,7 +29,7 @@ bio: I am interested in label-efficient learning and scene understanding (\texti
 interests:
   - Label-efficient Learning
   - Representation Learning
-  - Semantic Segmentation / Object Localization
+  - Image Segmentation & Object Localization
 
 # Education to show in About widget
 education:
