@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation",
+    "authors": "S Lee, M Lee, J Lee, H Shim",
+    "venue": "Conference on Computer Vision and Pattern Recognition (CVPR), 2021",
+    "year": "2021",
+    "citations": "376",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:qjMakFHDy7sC",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=548329078873344604"
+  },
+  {
+    "title": "Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds",
+    "authors": "M Lee, D Kim, H Shim",
+    "venue": "Conference on Computer Vision and Pattern Recognition (CVPR), 2022",
+    "year": "2022",
+    "citations": "134",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:YsMSGLbcyi4C",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11996776905163955629"
+  },
+  {
+    "title": "Psynet: Self-supervised approach to object localization using point symmetric transformation",
+    "authors": "K Baek, M Lee, H Shim",
+    "venue": "AAAI Conference on Artificial Intelligence, 2020",
+    "year": "2020",
+    "citations": "44",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:2osOgNQ5qMEC",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11764691911997573274"
+  },
+  {
+    "title": "Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation",
+    "authors": "M Lee, S Lee, J Lee, H Shim",
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI), 2023",
+    "year": "2023",
+    "citations": "30",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:roLk4NBRz8UC",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2003008088484081381"
+  },
+  {
+    "title": "Hybridmatch: Semi-supervised facial landmark detection via hybrid heatmap representations",
+    "authors": "S Kang, M Lee, M Kim, H Shim",
+    "venue": "IEEE Access 11, 26125-26135, 2023",
+    "year": "2023",
+    "citations": "11",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:eQOLeE2rZwMC",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14523235329149123692"
+  },
+  {
+    "title": "Understanding Multi-Granularity for Open-Vocabulary Part Segmentation",
+    "authors": "J Choi, S Lee, S Lee, M Lee, H Shim",
+    "venue": "Neural Information Processing Systems (NeurIPS), 2024",
+    "year": "2024",
+    "citations": "6",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:UebtZRa9Y70C",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=898559212846525744"
+  },
+  {
+    "title": "SeiT++: Masked Token Modeling Improves Storage-efficient Training",
+    "authors": "M Lee, S Park, B Heo, D Han, H Shim",
+    "venue": "European Conference on Computer Vision (ECCV), 2024",
+    "year": "2024",
+    "citations": "4",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:hqOjcs7Dif8C",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2332272402856162004,9717333575202715682"
+  },
+  {
+    "title": "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation",
+    "authors": "M Lee, S Lee, S Park, D Han, B Heo, H Shim",
+    "venue": "Transactions on Machine Learning Research (TMLR), 2025",
+    "year": "2025",
+    "citations": "3",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:kNdYIx-mwKoC",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=489177358752591045"
+  },
+  {
+    "title": "Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation",
+    "authors": "J Choi, S Lee, M Lee, S Lee, H Shim",
+    "venue": "Conference on Computer Vision and Pattern Recognition (CVPR), 2025",
+    "year": "2025",
+    "citations": "3",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:Zph67rFs4hoC",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8989208716139156625"
+  },
+  {
+    "title": "Weakly supervised semantic segmentation device and method based on pseudo-masks",
+    "authors": "S Hyunjung, S Lee, LEE Minhyun",
+    "venue": "US Patent 11,798,171, 2023",
+    "year": "2023",
+    "citations": "2",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:LkGwnXOMwfcC",
+    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5197467333357335682"
+  },
+  {
+    "title": "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP",
+    "authors": "NM An, I Kang, M Lee, H Shim",
+    "venue": "arXiv preprint arXiv:2509.23098, 2025",
+    "year": "2025",
+    "citations": "",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:ULOm3_A8WrAC",
+    "cited_by_url": ""
+  },
+  {
+    "title": "Rethinking Weakly Supervised Semantic Segmentation Utilizing Both Point and Image Labels",
+    "authors": "M Lee, H Lee, H Shim",
+    "venue": "Available at SSRN 5062471, 0",
+    "year": "",
+    "citations": "",
+    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:KlAtU1dfN6UC",
+    "cited_by_url": ""
+  }
+]

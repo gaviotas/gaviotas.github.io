@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - static/uploads/resume.pdf
+  render:
+    - index.qmd
+
+website:
+  title: "Minhyun Lee"
+  site-url: "https://minhyunlee.github.io"
+  search: false
+  navbar:
+    background: "#f4f1ea"
+    foreground: "#1f2a37"
+    pinned: true
+    left:
+      - href: index.qmd
+        text: Home
+    right:
+      - text: Scholar
+        href: "https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko"
+      - text: GitHub
+        href: "https://github.com/gaviotas"
+  page-footer:
+    border: false
+    left: "Minhyun Lee"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme:
+      light: [sandstone, styles.scss]
+    toc: false
+    anchor-sections: false
+    smooth-scroll: true
+    link-external-newwindow: true
+
+execute:
+  freeze: auto

@@ -1,0 +1,33 @@
+---
+title: "CV"
+---
+
+## Curriculum Vitae
+
+The existing CV PDF is still available below.
+
+[Open CV PDF](static/uploads/resume.pdf)
+
+## Current Snapshot
+
+### Position
+
+PhD Candidate, Yonsei University
+
+### Research Interests
+
+- Label-efficient learning
+- Representation learning
+- Semantic segmentation
+- Object localization
+
+### Experience
+
+- Research Intern, NAVER AI Lab, July 2023 to December 2023
+
+### Education
+
+- PhD in Integrated Technology, Yonsei University
+- BSc in Computer Science, Yonsei University
+
+As part of the Quarto migration, this page can later be expanded into a web-native CV with publications, awards, teaching, and service.

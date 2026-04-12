@@ -1,0 +1,25 @@
+---
+title: "Research"
+---
+
+## Overview
+
+My research focuses on learning visual representations efficiently and reliably in settings where labels, memory, or compute are limited. I am especially interested in methods that remain useful under realistic constraints rather than only in ideal benchmark settings.
+
+## Research Areas
+
+### Label-Efficient Learning
+
+I am interested in approaches that reduce annotation cost while preserving downstream usefulness. This includes weak supervision, semi-supervised learning, and representation learning strategies that can extract more value from limited labels.
+
+### Scene Understanding
+
+A recurring theme in my work is how to build models that understand structured visual scenes. Semantic segmentation and related dense prediction tasks are a natural testbed for this goal.
+
+### Object Localization and Dense Prediction
+
+I care about models that can localize and segment meaningful visual regions accurately while remaining practical to train and deploy.
+
+## Ongoing Direction
+
+Recent work has included storage-efficient vision training and practical representation learning settings. As this site evolves, this page can grow into a more detailed research narrative with figures, papers, and project links.

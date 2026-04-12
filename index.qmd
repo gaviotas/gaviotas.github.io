@@ -1,0 +1,413 @@
+---
+title: ""
+page-layout: full
+---
+
+::: {.hero-shell}
+::: {.hero}
+::: {.hero-copy}
+::: {.hero-mark}
+Minhyun Lee
+:::
+
+# Minhyun Lee
+
+::: {.hero-tagline}
+Research Staff at Samsung Electronics AI Center focused on semiconductor data intelligence and layout pattern generation.
+:::
+
+I work on label-efficient methods for semiconductor-chip data, including misalignment prediction, data preprocessing, and layout pattern generation. The focus is on building practical industrial vision systems that stay reliable under limited supervision.
+
+::: {.chip-row}
+`Semiconductor Data`
+`Misalignment Prediction`
+`Label-Efficient Learning`
+`Layout Pattern Generation`
+`Diffusion / VLM / RL`
+`Industrial Vision`
+:::
+
+[Google Scholar](https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko){.btn-hero}
+[GitHub](https://github.com/gaviotas){.btn-ghost}
+:::
+
+::: {.hero-visual}
+![](KakaoTalk_Photo_2026-04-12-16-00-50.jpeg){.hero-photo}
+:::
+:::
+:::
+
+::: {.section-intro}
+## Current Work
+Two main threads define the current role: semiconductor data intelligence and layout pattern generation. Both combine industrial data, efficient learning, and generative modeling.
+:::
+
+::: {.grid .theme-grid}
+::: {.card .theme-card}
+::: {.card-number}
+01
+:::
+
+### Semiconductor Data Intelligence
+
+Misalignment prediction and label-efficient preprocessing for semiconductor-chip data, with an emphasis on industrial data quality, noisy labels, and robust learning.
+:::
+
+::: {.card .theme-card}
+::: {.card-number}
+02
+:::
+
+### Layout Pattern Generation
+
+Benchmarking and generation methods for semiconductor layout patterns, including diffusion-, VLM-, and RL-based approaches for semiconductor design.
+:::
+:::
+
+::: {.section-intro}
+## Research Themes
+The core research focus is still visual learning, but now centered on practical, industrial, and label-efficient problems that matter in real deployments.
+:::
+
+::: {.grid .theme-grid}
+::: {.card .theme-card}
+::: {.card-number}
+01
+:::
+
+### Industrial Vision and Label Efficiency
+
+Reducing annotation cost for semiconductor data while improving preprocessing, robustness, and downstream usefulness.
+:::
+
+::: {.card .theme-card}
+::: {.card-number}
+02
+:::
+
+### Scene Understanding
+
+Representation learning for segmentation, localization, and scene understanding in complex visual settings.
+:::
+
+::: {.card .theme-card}
+::: {.card-number}
+03
+:::
+
+### Segmentation and Localization
+
+Object localization and dense prediction under limited supervision, with an emphasis on practical pseudo-supervision.
+:::
+:::
+
+::: {.section-intro}
+## Selected Publications
+A compact list of representative papers, grouped by type.
+:::
+::: {.grid .paper-grid}
+::: {.paper-card}
+### [Railroad is not a train](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:qjMakFHDy7sC)
+
+Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation.
+
+CVPR 2021
+:::
+
+::: {.paper-card}
+### [Threshold matters in WSSS](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:YsMSGLbcyi4C)
+
+Robust activation manipulation for accurate segmentation under threshold sensitivity.
+
+CVPR 2022
+:::
+
+::: {.paper-card}
+### [Saliency as pseudo-pixel supervision](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:roLk4NBRz8UC)
+
+An extended journal treatment of weakly and semi-supervised semantic segmentation.
+
+PAMI 2023
+:::
+:::
+
+::: {.section-intro}
+## Experience
+:::
+
+::: {.timeline}
+::: {.timeline-item}
+::: {.timeline-meta}
+Dec 2024 - Present
+:::
+::: {.timeline-body}
+### Research Staff, AI Center
+
+Samsung Electronics  
+South Korea
+
+Misalignment prediction and layout pattern generation for semiconductor-chip data, with emphasis on industrial preprocessing and label efficiency.
+:::
+:::
+
+::: {.timeline-item}
+::: {.timeline-meta}
+Oct 2024 - Dec 2024
+:::
+::: {.timeline-body}
+### Research Staff, SAIT
+
+Samsung Electronics  
+Computer Vision Lab @ SAIT
+
+Image generation research for Samsung Electronics.
+:::
+:::
+
+::: {.timeline-item}
+::: {.timeline-meta}
+Mar 2019 - Aug 2024
+:::
+::: {.timeline-body}
+### PhD Student
+
+Yonsei University  
+Seoul, South Korea
+
+Advisor: Prof. Hyunjung Shim  
+Computer vision, deep learning, and self-supervised learning.
+:::
+:::
+
+::: {.timeline-item}
+::: {.timeline-meta}
+Jul 2023 - Dec 2023
+:::
+::: {.timeline-body}
+### Research Internship
+
+NAVER Cloud  
+Bundang, South Korea
+
+Mentors: Song Park, Byeongho Heo, Dongyoon Han  
+Storage-efficient vision training and industrial-scale model development.
+:::
+:::
+
+::: {.timeline-item}
+::: {.timeline-meta}
+Jan 2018 - Sep 2018
+:::
+::: {.timeline-body}
+### Student Intern
+
+Yonsei University  
+Seoul, South Korea
+
+Built software for an online learning platform.
+:::
+:::
+:::
+
+::: {.section-intro}
+## Education
+Academic training that supports the current research direction.
+:::
+
+::: {.grid .theme-grid}
+::: {.card .theme-card}
+::: {.card-number}
+2019-2024
+:::
+
+### M.S. and Ph.D. in Integrated Technology
+
+Yonsei University  
+Advisor: Prof. Hyunjung Shim  
+Completed in Aug. 2024.
+:::
+
+::: {.card .theme-card}
+::: {.card-number}
+2012-2019
+:::
+
+### B.S. in Computer Science
+
+Yonsei University  
+Graduated 2nd of 79.
+:::
+:::
+
+::: {.section-intro}
+## Selected Projects
+Projects that show the broader research base behind the current work. They cover vision-language learning, efficient training, industrial inspection, and earlier label-efficient research.
+:::
+
+::: {.pub-groups}
+::: {.pub-group}
+### Vision and Language
+
+Text-guided and open-vocabulary segmentation work that connects language supervision with dense visual understanding.
+
+::: {.pub-item}
+#### Referring Image Segmentation
+
+Text-guided object segmentation with multi-modal learning and effective augmentation.
+:::
+
+::: {.pub-item}
+#### Open-Vocabulary Part Segmentation
+
+Open-vocabulary part segmentation with fine-grained image-text alignment and multi-granularity reasoning.
+:::
+:::
+
+::: {.pub-group}
+### Efficient Training
+
+Training methods that reduce memory or annotation cost while keeping segmentation and representation learning practical.
+
+::: {.pub-item}
+#### Storage-efficient Large-scale Vision Training
+
+Storage-efficient training with unsupervised representations and token-aware augmentation.
+:::
+
+::: {.pub-item}
+#### Label-efficient Semantic Segmentation
+
+Semantic segmentation under limited annotation budgets.
+:::
+:::
+
+::: {.pub-group}
+### Applied Research
+
+Industrial tasks that translate the core vision methods into inspection and restoration settings.
+
+::: {.pub-item}
+#### Efficient Surface Defect Detection
+
+Lightweight anomaly detection for industrial surface inspection under severe imbalance.
+:::
+
+::: {.pub-item}
+#### Image Completion for Occlusion Area Restoration
+
+Image completion for occlusion restoration in multi-view video settings.
+:::
+:::
+
+::: {.pub-group}
+### Earlier Work
+
+Foundational label-efficient work that established the dense prediction and localization direction.
+
+::: {.pub-item}
+#### Semi-supervised Facial Landmark Detection
+
+Low-shot facial landmark detection with hybrid heatmaps.
+:::
+
+::: {.pub-item}
+#### Self-supervised Object Localization
+
+Self-supervised object localization for salient object discovery.
+:::
+:::
+:::
+
+## Publications
+A compact list of representative papers, grouped by type.
+\* indicates equal contribution.
+
+::: {.pub-groups}
+::: {.pub-group}
+### Conference Papers
+
+::: {.pub-item}
+#### [Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:qjMakFHDy7sC)
+
+Seungho Lee\*, **Minhyun Lee**\*, Jongwuk Lee, Hyunjung Shim | Conference on Computer Vision and Pattern Recognition (CVPR), 2021
+:::
+
+::: {.pub-item}
+#### [Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:YsMSGLbcyi4C)
+
+**Minhyun Lee**\*, Dongseob Kim\*, Hyunjung Shim | Conference on Computer Vision and Pattern Recognition (CVPR), 2022
+:::
+
+::: {.pub-item}
+#### [Psynet: Self-supervised approach to object localization using point symmetric transformation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:2osOgNQ5qMEC)
+
+Kyungjune Baek\*, **Minhyun Lee**\*, Hyunjung Shim | AAAI Conference on Artificial Intelligence, 2020
+:::
+
+::: {.pub-item}
+#### [Understanding Multi-Granularity for Open-Vocabulary Part Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:UebtZRa9Y70C)
+
+Jiho Choi, Seonho Lee, Seungho Lee, **Minhyun Lee**, Hyunjung Shim | Neural Information Processing Systems (NeurIPS), 2024
+:::
+
+::: {.pub-item}
+#### [SeiT++: Masked Token Modeling Improves Storage-efficient Training](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:hqOjcs7Dif8C)
+
+**Minhyun Lee**\*, Song Park\*, Byeongho Heo, Dongyoon Han, Hyunjung Shim | European Conference on Computer Vision (ECCV), 2024
+:::
+
+::: {.pub-item}
+#### [Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:Zph67rFs4hoC)
+
+Jiho Choi, Seonho Lee, **Minhyun Lee**, Seungho Lee, Hyunjung Shim | Conference on Computer Vision and Pattern Recognition (CVPR), 2025
+:::
+:::
+
+::: {.pub-group}
+### Journal Articles
+
+::: {.pub-item}
+#### [Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:roLk4NBRz8UC)
+
+**Minhyun Lee**\*, Seungho Lee\*, Jongwuk Lee, Hyunjung Shim | IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI), 2023
+:::
+
+::: {.pub-item}
+#### [Hybridmatch: Semi-supervised facial landmark detection via hybrid heatmap representations](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:eQOLeE2rZwMC)
+
+Seoungyoon Kang\*, **Minhyun Lee**\*, Minjae Kim, Hyunjung Shim | IEEE Access 11, 26125-26135, 2023
+:::
+
+::: {.pub-item}
+#### [MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:kNdYIx-mwKoC)
+
+**Minhyun Lee**\*, Seungho Lee\*, Song Park, Dongyoon Han, Byeongho Heo, Hyunjung Shim | Transactions on Machine Learning Research (TMLR), 2025
+:::
+:::
+
+::: {.pub-group}
+### Preprints
+
+::: {.pub-item}
+#### [CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:ULOm3_A8WrAC)
+
+NM An, I Kang, **Minhyun Lee**, Hyunjung Shim | arXiv preprint arXiv:2509.23098, 2025
+:::
+
+::: {.pub-item}
+#### [Rethinking Weakly Supervised Semantic Segmentation Utilizing Both Point and Image Labels](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:KlAtU1dfN6UC)
+
+**Minhyun Lee**, Hwijeong Lee, Hyunjung Shim | Available at SSRN 5062471, 0
+:::
+:::
+
+::: {.pub-group}
+### Patents
+
+::: {.pub-item}
+#### [Weakly supervised semantic segmentation device and method based on pseudo-masks](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:LkGwnXOMwfcC)
+
+Hyunjung Shim, Seungho Lee, **Minhyun Lee** | US Patent 11,798,171, 2023
+:::
+:::
+:::

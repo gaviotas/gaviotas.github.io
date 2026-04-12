@@ -8,3 +8,10 @@ jsconfig.json
 node_modules/
 go.sum
 .hugo_build.lock
+
+# Quarto
+_site/
+.tools/
+
+/.quarto/
+**/*.quarto_ipynb
