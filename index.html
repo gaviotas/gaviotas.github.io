@@ -34,6 +34,9 @@ title: Home
         {% if paper.paper_pdf %}
           <a class="button" href="{{ paper.paper_pdf }}" target="_blank">paper</a>
         {% endif %}
+        {% if paper.code %}
+          <a class="button" href="{{ paper.code }}" target="_blank">code</a>
+        {% endif %}
       </div>
     </div>
   {% endfor %}

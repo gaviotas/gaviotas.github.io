@@ -9,24 +9,28 @@ papers:
     authors: "<b>M Lee</b><span class=\"equal-note\">*</span>, S Lee<span class=\"equal-note\">*</span>, S Park, D Han, B Heo, H Shim"
     venue: "Transactions on Machine Learning Research (TMLR), 2025"
     paper_pdf: "https://arxiv.org/abs/2411.19067"
+    code: "https://github.com/naver-ai/maskris"
     cited_by: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=489177358752591045"
 
   - title: "Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation"
     authors: "J Choi<span class=\"equal-note\">*</span>, S Lee<span class=\"equal-note\">*</span>, <b>M Lee</b>, S Lee, H Shim"
     venue: "Conference on Computer Vision and Pattern Recognition (CVPR), 2025"
     paper_pdf: "https://openaccess.thecvf.com/content/CVPR2025/html/Choi_Fine-Grained_Image-Text_Correspondence_with_Cost_Aggregation_for_Open-Vocabulary_Part_Segmentation_CVPR_2025_paper.html"
+    code: "https://github.com/kaist-cvml/part-catseg"
     cited_by: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8989208716139156625"
 
   - title: "Understanding Multi-Granularity for Open-Vocabulary Part Segmentation"
     authors: "J Choi<span class=\"equal-note\">*</span>, S Lee<span class=\"equal-note\">*</span>, S Lee, <b>M Lee</b>, H Shim"
     venue: "Neural Information Processing Systems (NeurIPS), 2024"
     paper_pdf: "https://proceedings.neurips.cc/paper_files/paper/2024/hash/f7f47a73d631c0410cbc2748a8015241-Abstract-Conference.html"
+    code: "https://github.com/kaist-cvml/part-clipseg"
     cited_by: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=898559212846525744"
 
   - title: "SeiT++: Masked Token Modeling Improves Storage-efficient Training"
     authors: "<b>M Lee</b><span class=\"equal-note\">*</span>, S Park<span class=\"equal-note\">*</span>, B Heo, D Han, H Shim"
     venue: "European Conference on Computer Vision (ECCV), 2024"
     paper_pdf: "https://arxiv.org/abs/2312.10105"
+    code: "https://github.com/naver-ai/seit"
     cited_by: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2332272402856162004,9717333575202715682"
 
   - title: "Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation"
@@ -45,12 +49,14 @@ papers:
     authors: "<b>M Lee</b><span class=\"equal-note\">*</span>, D Kim<span class=\"equal-note\">*</span>, H Shim"
     venue: "Conference on Computer Vision and Pattern Recognition (CVPR), 2022"
     paper_pdf: "https://openaccess.thecvf.com/content/CVPR2022/html/Lee_Threshold_Matters_in_WSSS_Manipulating_the_Activation_for_the_Robust_CVPR_2022_paper.html"
+    code: "https://github.com/gaviotas/AMN"
     cited_by: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11996776905163955629"
 
   - title: "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation"
     authors: "S Lee<span class=\"equal-note\">*</span>, <b>M Lee</b><span class=\"equal-note\">*</span>, J Lee, H Shim"
     venue: "Conference on Computer Vision and Pattern Recognition (CVPR), 2021"
     paper_pdf: "https://openaccess.thecvf.com/content/CVPR2021/html/Lee_Railroad_Is_Not_a_Train_Saliency_As_Pseudo-Pixel_Supervision_for_CVPR_2021_paper.html"
+    code: "https://github.com/halbielee/EPS"
     cited_by: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=548329078873344604"
 
   - title: "Psynet: Self-supervised approach to object localization using point symmetric transformation"

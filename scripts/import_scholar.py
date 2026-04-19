@@ -63,6 +63,14 @@ TITLE_OVERRIDES = {
 PAPER_URL_OVERRIDES = {
     "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://arxiv.org/abs/2312.10105",
 }
+CODE_URL_OVERRIDES = {
+    "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": "https://github.com/naver-ai/maskris",
+    "Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation": "https://github.com/kaist-cvml/part-catseg",
+    "Understanding Multi-Granularity for Open-Vocabulary Part Segmentation": "https://github.com/kaist-cvml/part-clipseg",
+    "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://github.com/naver-ai/seit",
+    "Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds": "https://github.com/gaviotas/AMN",
+    "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation": "https://github.com/halbielee/EPS",
+}
 EXCLUDED_TITLES = {
     "Weakly supervised semantic segmentation device and method based on pseudo-masks",
 }
@@ -288,6 +296,8 @@ def write_outputs(publications: list[Publication]) -> None:
                 f"    paper_pdf: {yaml_quote(resolved_link)}",
             ]
         )
+        if resolved_title in CODE_URL_OVERRIDES:
+            lines.append(f"    code: {yaml_quote(CODE_URL_OVERRIDES[resolved_title])}")
         if pub.cited_by_url:
             lines.append(f"    cited_by: {yaml_quote(pub.cited_by_url)}")
         lines.append("")
