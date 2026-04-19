@@ -14,12 +14,13 @@ PROFILE_ID = "2hUlCnQAAAAJ"
 PROFILE_URL = f"{BASE}/citations?user={PROFILE_ID}&hl=en&cstart=0&pagesize=100"
 ROOT = Path(__file__).resolve().parents[1]
 YAML_PATH = ROOT / "_data" / "publications.yaml"
+USER_AGENT = "Mozilla/5.0"
 EQUAL_CONTRIBUTION_AUTHORS = {
     "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": [
         "M Lee",
         "S Lee",
     ],
-    "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP": [
+    "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding": [
         "NM An",
         "I Kang",
     ],
@@ -55,6 +56,12 @@ EQUAL_CONTRIBUTION_AUTHORS = {
         "J Choi",
         "S Lee",
     ],
+}
+TITLE_OVERRIDES = {
+    "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP": "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding",
+}
+PAPER_URL_OVERRIDES = {
+    "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://arxiv.org/abs/2312.10105",
 }
 EXCLUDED_TITLES = {
     "Weakly supervised semantic segmentation device and method based on pseudo-masks",
@@ -166,10 +173,14 @@ def clean(text: str) -> str:
     return re.sub(r"\s+", " ", unescape(text)).strip()
 
 
-def fetch_profile_html() -> str:
-    request = urllib.request.Request(PROFILE_URL, headers={"User-Agent": "Mozilla/5.0"})
+def fetch_html(url: str) -> str:
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=20) as response:
         return response.read().decode("utf-8", "ignore")
+
+
+def fetch_profile_html() -> str:
+    return fetch_html(PROFILE_URL)
 
 
 def parse_publications(html: str) -> list[Publication]:
@@ -217,6 +228,47 @@ def emphasize_author(title: str, authors: str) -> str:
     return result.replace("†", "*")
 
 
+def resolve_title(title: str) -> str:
+    return TITLE_OVERRIDES.get(title, title)
+
+
+def resolve_publication_link(title: str, detail_url: str) -> str:
+    if title in PAPER_URL_OVERRIDES:
+        return PAPER_URL_OVERRIDES[title]
+
+    if not detail_url:
+        return ""
+
+    try:
+        html = fetch_html(detail_url)
+    except Exception:
+        return detail_url
+
+    match = re.search(r'<a class="gsc_oci_title_link" href="([^"]+)"', html)
+    if not match:
+        return detail_url
+
+    return sanitize_publication_link(unescape(match.group(1)))
+
+
+def sanitize_publication_link(url: str) -> str:
+    parsed = urllib.parse.urlparse(url)
+    query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+    query = [(key, value) for key, value in query if key.lower() != "ref"]
+
+    scheme = parsed.scheme
+    if parsed.netloc == "openaccess.thecvf.com" and scheme == "http":
+        scheme = "https"
+
+    return urllib.parse.urlunparse(
+        parsed._replace(
+            scheme=scheme,
+            query=urllib.parse.urlencode(query),
+            fragment="",
+        )
+    )
+
+
 def yaml_quote(value: str) -> str:
     escaped = value.replace("\\", "\\\\").replace('"', '\\"')
     return f'"{escaped}"'
@@ -226,12 +278,14 @@ def write_outputs(publications: list[Publication]) -> None:
     ordered = sorted(publications, key=publication_sort_key, reverse=True)
     lines = ["papers:", ""]
     for pub in ordered:
+        resolved_title = resolve_title(pub.title)
+        resolved_link = resolve_publication_link(resolved_title, pub.detail_url)
         lines.extend(
             [
-                f"  - title: {yaml_quote(pub.title)}",
-                f"    authors: {yaml_quote(emphasize_author(pub.title, pub.authors))}",
+                f"  - title: {yaml_quote(resolved_title)}",
+                f"    authors: {yaml_quote(emphasize_author(resolved_title, pub.authors))}",
                 f"    venue: {yaml_quote(pub.venue)}",
-                f"    paper_pdf: {yaml_quote(pub.detail_url)}",
+                f"    paper_pdf: {yaml_quote(resolved_link)}",
             ]
         )
         if pub.cited_by_url:

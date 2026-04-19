@@ -56,12 +56,22 @@ h4 {
   border-top: 1px solid #eee;
   padding: 4rem 0;
   margin-bottom: 0;}
+#publications h4 {
+  margin-bottom: 1.2rem;
+}
+#publications > p {
+  margin-bottom: 1.6rem;
+}
 .footer {
   text-align: center;
   color: rgba(0, 0, 0, 0.4);
   border-top: 1px solid #eee;
   padding: 15px 0 40px 0;
   margin-bottom: 0;}
+.footer-credit {
+  margin-top: 12px;
+  font-size: 1.3rem;
+}
 .navbar {
   display: none; }
 .title-subtitle h3 {

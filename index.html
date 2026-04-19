@@ -22,8 +22,7 @@ title: Home
   <h4>Publications</h4>
 
   <p>
-    Most recent publications on <a href="{{ site.data.main_info.google_scholar }}" target="_blank">Google Scholar</a>.<br/>
-    <span class="equal-note">*</span> indicates equal contribution.
+    (<span class="equal-note">*</span> indicates equal contribution.)
   </p>
 
   {% for paper in site.data.publications.papers %}
@@ -33,10 +32,7 @@ title: Home
       <p><i>{{ paper.venue }}</i></p>
       <div class="paper-buttons">
         {% if paper.paper_pdf %}
-          <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Scholar</a>
-        {% endif %}
-        {% if paper.cited_by %}
-          <a class="button" href="{{ paper.cited_by }}" target="_blank">Cited by</a>
+          <a class="button" href="{{ paper.paper_pdf }}" target="_blank">paper</a>
         {% endif %}
       </div>
     </div>
