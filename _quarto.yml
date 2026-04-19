@@ -5,6 +5,7 @@ project:
     - static/uploads/resume.pdf
   render:
     - index.qmd
+    - pages/*.qmd
 
 website:
   title: "Minhyun Lee"
@@ -17,6 +18,12 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: pages/research.qmd
+        text: Research
+      - href: pages/publications.qmd
+        text: Publications
+      - href: pages/cv.qmd
+        text: CV
     right:
       - text: Scholar
         href: "https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko"

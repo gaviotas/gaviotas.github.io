@@ -16,7 +16,7 @@ PROFILE_ID = "2hUlCnQAAAAJ"
 PROFILE_URL = f"{BASE}/citations?user={PROFILE_ID}&hl=en&cstart=0&pagesize=100"
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "publications.json"
-PAGE_PATH = ROOT / "publications.qmd"
+PAGE_PATH = ROOT / "pages" / "publications.qmd"
 
 
 @dataclass

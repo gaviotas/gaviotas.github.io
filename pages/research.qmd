@@ -1,0 +1,29 @@
+---
+title: "Research"
+---
+
+## Overview
+
+My work focuses on reliable visual learning under practical industrial constraints. The common thread is efficiency: reducing supervision cost, improving data quality, and building methods that remain useful when labels, compute, or clean annotations are limited.
+
+## Research Areas
+
+### Semiconductor Data Intelligence
+
+Current work emphasizes semiconductor-chip data, especially preprocessing, misalignment prediction, and robust modeling for noisy industrial pipelines.
+
+### Label-Efficient Learning
+
+I am interested in approaches that reduce annotation cost while preserving downstream usefulness. This includes weak supervision, semi-supervised learning, and representation learning strategies that can extract more value from limited labels.
+
+### Layout Pattern Generation
+
+Another active direction is generation and benchmarking for semiconductor layout patterns using diffusion, vision-language, and reinforcement-learning based approaches.
+
+### Scene Understanding and Dense Prediction
+
+A recurring theme in earlier work is how to build models that understand structured visual scenes, especially semantic segmentation, localization, and dense prediction under weak or partial supervision.
+
+## Ongoing Direction
+
+Recent work combines academic computer vision experience with industrial deployment constraints. The goal is not only stronger benchmark performance, but methods that remain stable when data pipelines are imperfect and labels are expensive.

@@ -32,7 +32,7 @@ I work on label-efficient methods for semiconductor-chip data, including misalig
 :::
 
 ::: {.hero-visual}
-![](KakaoTalk_Photo_2026-04-12-16-00-50.jpeg){.hero-photo}
+![](assets/profile/portrait.jpeg){.hero-photo}
 :::
 :::
 :::
@@ -236,6 +236,31 @@ Completed in Aug. 2024.
 
 Yonsei University  
 Graduated 2nd of 79.
+:::
+:::
+
+::: {.section-intro}
+## Explore More
+Detailed research directions, publication records, and a concise CV are available as separate pages.
+:::
+
+::: {.grid .theme-grid}
+::: {.card .theme-card}
+### [Research](pages/research.qmd)
+
+Current themes, problem settings, and ongoing directions.
+:::
+
+::: {.card .theme-card}
+### [Publications](pages/publications.qmd)
+
+Selected papers and the full publication list imported from Google Scholar.
+:::
+
+::: {.card .theme-card}
+### [CV](pages/cv.qmd)
+
+Short-form academic profile with a direct link to the PDF resume.
 :::
 :::
 
