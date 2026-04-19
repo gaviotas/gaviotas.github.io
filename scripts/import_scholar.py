@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-
-import json
 import re
 import sys
 import urllib.parse
 import urllib.request
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -15,7 +13,6 @@ BASE = "https://scholar.google.com"
 PROFILE_ID = "2hUlCnQAAAAJ"
 PROFILE_URL = f"{BASE}/citations?user={PROFILE_ID}&hl=en&cstart=0&pagesize=100"
 ROOT = Path(__file__).resolve().parents[1]
-JSON_PATH = ROOT / "data" / "publications.json"
 YAML_PATH = ROOT / "_data" / "publications.yaml"
 EQUAL_CONTRIBUTION_AUTHORS = {
     "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": [
@@ -226,12 +223,6 @@ def yaml_quote(value: str) -> str:
 
 
 def write_outputs(publications: list[Publication]) -> None:
-    JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
-    JSON_PATH.write_text(
-        json.dumps([asdict(pub) for pub in publications], ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-
     ordered = sorted(publications, key=publication_sort_key, reverse=True)
     lines = ["papers:", ""]
     for pub in ordered:

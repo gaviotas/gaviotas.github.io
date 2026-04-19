@@ -65,10 +65,7 @@ Refresh publications from Google Scholar:
 python3 scripts/import_scholar.py
 ```
 
-This updates:
-
-- `_data/publications.yaml`
-- `data/publications.json`
+This updates `_data/publications.yaml`.
 
 ## Deployment
 
