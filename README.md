@@ -34,19 +34,34 @@ Personal academic website built with Quarto and deployed to GitHub Pages or Netl
 
 ## Local Development
 
-Quarto CLI is required.
+This repository can bootstrap a pinned local Quarto binary without requiring a system-wide install.
+
+Check the local Quarto runtime:
 
 ```bash
-quarto preview
+make quarto-check
+```
+
+Preview the site locally:
+
+```bash
+make preview
 ```
 
 To generate the static site once:
 
 ```bash
-quarto render
+make render
 ```
 
 The output is written to `_site/`.
+
+If you prefer calling Quarto directly, use the local wrapper:
+
+```bash
+./scripts/quarto-local --version
+./scripts/quarto-local preview --no-browser
+```
 
 ## Publications Update
 

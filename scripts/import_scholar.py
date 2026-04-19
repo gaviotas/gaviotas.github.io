@@ -17,6 +17,7 @@ PROFILE_URL = f"{BASE}/citations?user={PROFILE_ID}&hl=en&cstart=0&pagesize=100"
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "publications.json"
 PAGE_PATH = ROOT / "pages" / "publications.qmd"
+PARTIAL_PATH = ROOT / "_partials" / "_publications.qmd"
 
 
 @dataclass
@@ -155,55 +156,20 @@ def write_json(publications: list[Publication]) -> None:
 
 
 def write_publications_page(meta: dict[str, str], publications: list[Publication]) -> None:
-    selected = publications[:4]
     grouped = group_publications(publications)
     lines = [
-        "---",
-        'title: "Publications"',
-        "---",
+        f"Profile: {meta['description']}" if meta["description"] else "",
         "",
-        "## Overview",
-        "",
-        "A curated list generated from the public Google Scholar profile and organized by publication type.",
-        "",
-        f"Source: [Google Scholar profile]({PROFILE_URL})",
-        "",
-        "## Selected Publications",
+        f"\\* indicates equal contribution. | [Google Scholar profile]({PROFILE_URL})",
         "",
     ]
 
-    for pub in selected:
-        lines.extend(format_publication(pub, level="###"))
-
-    lines.extend(
-        [
-            "",
-            "## Full List",
-            "",
-        ]
-    )
-
-    if meta["description"]:
-        lines.extend(
-            [
-                f"Profile: {meta['description']}",
-                "",
-            ]
-        )
-
-    lines.extend(
-        [
-            f"Total entries imported: {len(publications)}",
-            "",
-        ]
-    )
-
-    section_order = ["Conference", "Journal", "Preprint", "Patent", "Other"]
+    section_order = ["Journal", "Conference", "Preprint", "Patent", "Other"]
     headings = {
-        "Conference": "### Conference Papers",
-        "Journal": "### Journal Articles",
-        "Preprint": "### Preprints",
-        "Patent": "### Patents",
+        "Conference": "### Conference",
+        "Journal": "### Journal",
+        "Preprint": "### Preprint",
+        "Patent": "### Patent",
         "Other": "### Other",
     }
 
@@ -211,28 +177,136 @@ def write_publications_page(meta: dict[str, str], publications: list[Publication
         items = grouped.get(key, [])
         if not items:
             continue
-        lines.extend([headings[key], ""])
+        lines.extend([headings[key], "", '::: {.publication-list}'])
         for pub in items:
-            lines.extend(format_publication(pub, level="####"))
+            lines.extend(format_publication(pub))
+        lines.extend([":::", ""])
 
-    PAGE_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    PARTIAL_PATH.parent.mkdir(parents=True, exist_ok=True)
+    PARTIAL_PATH.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    PAGE_PATH.write_text(
+        "\n".join(
+            [
+                "---",
+                'title: "Publications"',
+                "---",
+                "",
+                '::: {.section-intro}',
+                "## Publication Archive",
+                "The same publication list is available here as a dedicated page for direct linking and archival browsing.",
+                ":::",
+                "",
+                "{{< include /_partials/_publications.qmd >}}",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
 
 
-def format_publication(pub: Publication, level: str) -> list[str]:
+def format_publication(pub: Publication) -> list[str]:
     title_link = f"[{pub.title}]({pub.detail_url})" if pub.detail_url else pub.title
-    details = " | ".join(part for part in [pub.authors, pub.venue] if part)
-    block = [
-        f"{level} {title_link}",
-        "",
-    ]
-    if details:
-        block.append(details)
-        block.append("")
-    show_year_line = bool(pub.year) and (not pub.venue or pub.year not in pub.venue)
-    if show_year_line:
-        block.append(pub.year)
-        block.append("")
+    block = ['::: {.publication-entry}']
+    label = publication_label(pub)
+    if label:
+        block.extend(
+            [
+                '::: {.publication-kicker}',
+                label,
+                ':::',
+                "",
+            ]
+        )
+    block.extend(
+        [
+            f"#### {title_link}",
+            "",
+        ]
+    )
+    if pub.authors:
+        block.extend(
+            [
+                emphasize_author(pub.authors),
+                "",
+            ]
+        )
+    if pub.venue:
+        block.extend(
+            [
+                pub.venue,
+                "",
+            ]
+        )
+    links: list[str] = []
+    if pub.detail_url:
+        links.append(f"[Scholar]({pub.detail_url})")
+    if pub.cited_by_url:
+        links.append(f"[Cited by]({pub.cited_by_url})")
+    if links:
+        block.extend(
+            [
+                '::: {.publication-links}',
+                " ".join(links),
+                ':::',
+                "",
+            ]
+        )
+    block.extend(
+        [
+            ':::',
+            "",
+        ]
+    )
     return block
+
+
+def emphasize_author(authors: str) -> str:
+    patterns = [
+        r"\bM Lee\b",
+        r"\bMinhyun Lee\b",
+        r"\bLEE Minhyun\b",
+    ]
+    result = authors
+    for pattern in patterns:
+        result = re.sub(pattern, lambda m: f"**{m.group(0)}**", result)
+    return result
+
+
+def publication_label(pub: Publication) -> str:
+    venue = pub.venue or ""
+    year = pub.year or extract_year(venue)
+    short = venue_short_label(venue)
+    if short and year:
+        return f"{short} {year}"
+    if short:
+        return short
+    if year:
+        return year
+    return ""
+
+
+def extract_year(text: str) -> str:
+    match = re.search(r"(19|20)\d{2}", text)
+    return match.group(0) if match else ""
+
+
+def venue_short_label(venue: str) -> str:
+    checks = [
+        ("Pattern Analysis and Machine Intelligence", "PAMI"),
+        ("Transactions on Machine Learning Research", "TMLR"),
+        ("Conference on Computer Vision and Pattern Recognition", "CVPR"),
+        ("European Conference on Computer Vision", "ECCV"),
+        ("Neural Information Processing Systems", "NeurIPS"),
+        ("AAAI Conference on Artificial Intelligence", "AAAI"),
+        ("IEEE Access", "IEEE Access"),
+        ("arXiv", "arXiv"),
+        ("SSRN", "SSRN"),
+        ("Patent", "US Patent"),
+    ]
+    for needle, label in checks:
+        if needle.lower() in venue.lower():
+            return label
+    return ""
 
 
 def publication_kind(pub: Publication) -> str:
@@ -258,7 +332,14 @@ def group_publications(publications: list[Publication]) -> dict[str, list[Public
     }
     for pub in publications:
         grouped[publication_kind(pub)].append(pub)
+    for key, items in grouped.items():
+        grouped[key] = sorted(items, key=publication_sort_key, reverse=True)
     return grouped
+
+
+def publication_sort_key(pub: Publication) -> tuple[int, str, str]:
+    year = int(extract_year(pub.year or pub.venue or "") or "0")
+    return (year, pub.venue or "", pub.title or "")
 
 
 def main() -> int:

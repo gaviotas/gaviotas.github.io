@@ -12,27 +12,31 @@ website:
   site-url: "https://minhyunlee.github.io"
   search: false
   navbar:
-    background: "#f4f1ea"
-    foreground: "#1f2a37"
+    background: "#f7f3ec"
+    foreground: "#1f252d"
     pinned: true
     left:
-      - href: index.qmd
-        text: Home
-      - href: pages/research.qmd
+      - href: index.qmd#about
+        text: About
+      - href: index.qmd#research
         text: Research
-      - href: pages/publications.qmd
+      - href: index.qmd#publications
         text: Publications
-      - href: pages/cv.qmd
-        text: CV
+      - href: index.qmd#experience
+        text: Experience
+      - href: index.qmd#education
+        text: Education
     right:
+      - text: CV
+        href: "static/uploads/resume.pdf"
       - text: Scholar
         href: "https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko"
       - text: GitHub
         href: "https://github.com/gaviotas"
   page-footer:
     border: false
-    left: "Minhyun Lee"
-    right: "Built with Quarto"
+    left: "Minhyun Lee · Samsung Electronics AI Center"
+    right: "[Google Scholar](https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko) · [GitHub](https://github.com/gaviotas)"
 
 format:
   html:
