@@ -63,6 +63,7 @@ papers:
     authors: "K Baek<span class=\"equal-note\">*</span>, <b>M Lee</b><span class=\"equal-note\">*</span>, H Shim"
     venue: "AAAI Conference on Artificial Intelligence, 2020"
     paper_pdf: "https://aaai.org/ojs/index.php/AAAI/article/view/6615"
+    code: "https://github.com/FriedRonaldo/PsyNet"
     cited_by: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11764691911997573274"
 
   - title: "Rethinking Weakly Supervised Semantic Segmentation Utilizing Both Point and Image Labels"

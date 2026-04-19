@@ -70,6 +70,7 @@ CODE_URL_OVERRIDES = {
     "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://github.com/naver-ai/seit",
     "Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds": "https://github.com/gaviotas/AMN",
     "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation": "https://github.com/halbielee/EPS",
+    "Psynet: Self-supervised approach to object localization using point symmetric transformation": "https://github.com/FriedRonaldo/PsyNet",
 }
 EXCLUDED_TITLES = {
     "Weakly supervised semantic segmentation device and method based on pseudo-masks",
