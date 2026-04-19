@@ -1,0 +1,30 @@
+experiences:
+  - place: "Samsung Electronics AI Center"
+    time: "Dec 2024 - Present"
+    title: "Research Staff"
+    subtitle: "Semiconductor data intelligence, layout generation, and reliable industrial machine learning systems."
+    category: "work"
+
+  - place: "Samsung Electronics SAIT"
+    time: "Oct 2024 - Dec 2024"
+    title: "Research Staff"
+    subtitle: "Image generation and generative modeling research."
+    category: "work"
+
+  - place: "Yonsei University"
+    time: "Mar 2019 - Aug 2024"
+    title: "M.S. and Ph.D. in Integrated Technology"
+    subtitle: "Advised by Prof. Hyunjung Shim. Research in weak supervision, semantic segmentation, and representation learning."
+    category: "school"
+
+  - place: "Naver AI Lab"
+    time: "Jul 2023 - Dec 2023"
+    title: "Research Intern"
+    subtitle: "Mentored by Song Park, Byeongho Heo, and Dongyoon Han.<br/>Worked on storage-efficient vision training."
+    category: "work"
+
+  - place: "Yonsei University"
+    time: "Mar 2012 - Feb 2019"
+    title: "B.S. in Computer Science"
+    subtitle: ""
+    category: "school"

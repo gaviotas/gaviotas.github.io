@@ -1,0 +1,11 @@
+source: .
+destination: ./_site
+includes: ./_includes
+baseurl: ""
+title: "Minhyun Lee"
+url: "https://minhyunlee.github.io"
+exclude:
+  - .tools
+  - .git
+  - .github
+  - .quarto

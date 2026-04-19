@@ -4,7 +4,7 @@
     "authors": "S Lee, M Lee, J Lee, H Shim",
     "venue": "Conference on Computer Vision and Pattern Recognition (CVPR), 2021",
     "year": "2021",
-    "citations": "374",
+    "citations": "376",
     "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:qjMakFHDy7sC",
     "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=548329078873344604"
   },
@@ -13,7 +13,7 @@
     "authors": "M Lee, D Kim, H Shim",
     "venue": "Conference on Computer Vision and Pattern Recognition (CVPR), 2022",
     "year": "2022",
-    "citations": "134",
+    "citations": "135",
     "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:YsMSGLbcyi4C",
     "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11996776905163955629"
   },
@@ -79,15 +79,6 @@
     "citations": "3",
     "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:Zph67rFs4hoC",
     "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8989208716139156625"
-  },
-  {
-    "title": "Weakly supervised semantic segmentation device and method based on pseudo-masks",
-    "authors": "S Hyunjung, S Lee, LEE Minhyun",
-    "venue": "US Patent 11,798,171, 2023",
-    "year": "2023",
-    "citations": "2",
-    "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:LkGwnXOMwfcC",
-    "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5197467333357335682"
   },
   {
     "title": "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP",

@@ -15,9 +15,53 @@ BASE = "https://scholar.google.com"
 PROFILE_ID = "2hUlCnQAAAAJ"
 PROFILE_URL = f"{BASE}/citations?user={PROFILE_ID}&hl=en&cstart=0&pagesize=100"
 ROOT = Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "data" / "publications.json"
-PAGE_PATH = ROOT / "pages" / "publications.qmd"
-PARTIAL_PATH = ROOT / "_partials" / "_publications.qmd"
+JSON_PATH = ROOT / "data" / "publications.json"
+YAML_PATH = ROOT / "_data" / "publications.yaml"
+EQUAL_CONTRIBUTION_AUTHORS = {
+    "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": [
+        "M Lee",
+        "S Lee",
+    ],
+    "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP": [
+        "NM An",
+        "I Kang",
+    ],
+    "Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds": [
+        "M Lee",
+        "D Kim",
+    ],
+    "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation": [
+        "M Lee",
+        "S Lee",
+    ],
+    "SeiT++: Masked Token Modeling Improves Storage-efficient Training": [
+        "M Lee",
+        "S Park",
+    ],
+    "Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation": [
+        "M Lee",
+        "S Lee",
+    ],
+    "Hybridmatch: Semi-supervised facial landmark detection via hybrid heatmap representations": [
+        "S Kang",
+        "M Lee",
+    ],
+    "Psynet: Self-supervised approach to object localization using point symmetric transformation": [
+        "K Baek",
+        "M Lee",
+    ],
+    "Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation": [
+        "J Choi",
+        "S Lee",
+    ],
+    "Understanding Multi-Granularity for Open-Vocabulary Part Segmentation": [
+        "J Choi",
+        "S Lee",
+    ],
+}
+EXCLUDED_TITLES = {
+    "Weakly supervised semantic segmentation device and method based on pseudo-masks",
+}
 
 
 @dataclass
@@ -65,7 +109,8 @@ class ScholarParser(HTMLParser):
             return
 
         if tag == "a" and "gsc_a_ac" in attrs.get("class", ""):
-            self.row.cited_by_url = attrs.get("href", "")
+            href = attrs.get("href", "")
+            self.row.cited_by_url = urllib.parse.urljoin(BASE, href) if href else ""
             self.capture = "citations"
             self.buffer = []
             return
@@ -130,157 +175,15 @@ def fetch_profile_html() -> str:
         return response.read().decode("utf-8", "ignore")
 
 
-def parse_profile_meta(html: str) -> dict[str, str]:
-    title_match = re.search(r"<title>(.*?)</title>", html, re.S)
-    desc_match = re.search(r'<meta name="description" content="(.*?)">', html, re.S)
-    description = clean(desc_match.group(1)) if desc_match else ""
-    description_parts = [part.strip() for part in description.split(" - ") if part.strip()]
-    description_parts = [part for part in description_parts if "cited by" not in part.lower()]
-    return {
-        "title": clean(title_match.group(1)) if title_match else "Minhyun Lee - Google Scholar",
-        "description": " - ".join(description_parts),
-    }
-
-
 def parse_publications(html: str) -> list[Publication]:
     parser = ScholarParser()
     parser.feed(html)
-    return parser.publications
+    return [pub for pub in parser.publications if pub.title not in EXCLUDED_TITLES]
 
 
-def write_json(publications: list[Publication]) -> None:
-    DATA_PATH.write_text(
-        json.dumps([asdict(pub) for pub in publications], ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-
-
-def write_publications_page(meta: dict[str, str], publications: list[Publication]) -> None:
-    grouped = group_publications(publications)
-    lines = [
-        "(*: Equal contribution)",
-        "",
-    ]
-
-    section_order = ["Journal", "Conference", "Preprint", "Patent", "Other"]
-    headings = {
-        "Conference": "### Conference",
-        "Journal": "### Journal",
-        "Preprint": "### Preprint",
-        "Patent": "### Patent",
-        "Other": "### Other",
-    }
-
-    for key in section_order:
-        items = grouped.get(key, [])
-        if not items:
-            continue
-        lines.extend([headings[key], "", '::: {.publication-list}'])
-        for pub in items:
-            lines.extend(format_publication(pub))
-        lines.extend([":::", ""])
-
-    PARTIAL_PATH.parent.mkdir(parents=True, exist_ok=True)
-    PARTIAL_PATH.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
-    PAGE_PATH.write_text(
-        "\n".join(
-            [
-                "---",
-                'title: "Publications"',
-                "---",
-                "",
-                '::: {.section-intro}',
-                "## Publication Archive",
-                "The same publication list is available here as a dedicated page for direct linking and archival browsing.",
-                ":::",
-                "",
-                "{{< include /_partials/_publications.qmd >}}",
-                "",
-            ]
-        ),
-        encoding="utf-8",
-    )
-
-
-def format_publication(pub: Publication) -> list[str]:
-    title_link = f"[{pub.title}]({pub.detail_url})" if pub.detail_url else pub.title
-    block = ['::: {.publication-entry}']
-    label = publication_label(pub)
-    if label:
-        block.extend(
-            [
-                '::: {.publication-kicker}',
-                label,
-                ':::',
-                "",
-            ]
-        )
-    block.extend(
-        [
-            title_link,
-            "",
-        ]
-    )
-    if pub.authors:
-        block.extend(
-            [
-                emphasize_author(pub.authors),
-                "",
-            ]
-        )
-    if pub.venue:
-        block.extend(
-            [
-                pub.venue,
-                "",
-            ]
-        )
-    links: list[str] = []
-    if pub.detail_url:
-        links.append(f"[Scholar]({pub.detail_url})")
-    if pub.cited_by_url:
-        links.append(f"[Cited by]({pub.cited_by_url})")
-    if links:
-        block.extend(
-            [
-                '::: {.publication-links}',
-                " ".join(links),
-                ':::',
-                "",
-            ]
-        )
-    block.extend(
-        [
-            ':::',
-            "",
-        ]
-    )
-    return block
-
-
-def emphasize_author(authors: str) -> str:
-    patterns = [
-        r"\bM Lee\b",
-        r"\bMinhyun Lee\b",
-        r"\bLEE Minhyun\b",
-    ]
-    result = authors
-    for pattern in patterns:
-        result = re.sub(pattern, lambda m: f"**{m.group(0)}**", result)
-    return result
-
-
-def publication_label(pub: Publication) -> str:
-    venue = pub.venue or ""
-    year = pub.year or extract_year(venue)
-    short = venue_short_label(venue)
-    if short and year:
-        return f"{short} {year}"
-    if short:
-        return short
-    if year:
-        return year
-    return ""
+def publication_sort_key(pub: Publication) -> tuple[int, str, str]:
+    year = extract_year(pub.year or pub.venue or "")
+    return (int(year or "0"), pub.venue or "", pub.title or "")
 
 
 def extract_year(text: str) -> str:
@@ -288,71 +191,76 @@ def extract_year(text: str) -> str:
     return match.group(0) if match else ""
 
 
-def venue_short_label(venue: str) -> str:
-    checks = [
-        ("Pattern Analysis and Machine Intelligence", "PAMI"),
-        ("Transactions on Machine Learning Research", "TMLR"),
-        ("Conference on Computer Vision and Pattern Recognition", "CVPR"),
-        ("European Conference on Computer Vision", "ECCV"),
-        ("Neural Information Processing Systems", "NeurIPS"),
-        ("AAAI Conference on Artificial Intelligence", "AAAI"),
-        ("IEEE Access", "IEEE Access"),
-        ("arXiv", "arXiv"),
-        ("SSRN", "SSRN"),
-        ("Patent", "US Patent"),
-    ]
-    for needle, label in checks:
-        if needle.lower() in venue.lower():
-            return label
-    return ""
+def emphasize_author(title: str, authors: str) -> str:
+    patterns = [r"\bM Lee\b", r"\bMinhyun Lee\b", r"\bLEE Minhyun\b"]
+    result = authors
+    for pattern in patterns:
+        result = re.sub(pattern, lambda m: f"<b>{m.group(0)}</b>", result)
+
+    for name in EQUAL_CONTRIBUTION_AUTHORS.get(title, []):
+        candidates = []
+        if name == "M Lee":
+            candidates = [
+                r"<b>M Lee</b>",
+                r"<b>Minhyun Lee</b>",
+                r"<b>LEE Minhyun</b>",
+            ]
+        else:
+            candidates = [re.escape(name)]
+
+        applied = False
+        for candidate in candidates:
+            pattern = rf"({candidate})(?!<span class=\"equal-note\">\*</span>)"
+            updated = re.sub(pattern, r'\1<span class="equal-note">*</span>', result, count=1)
+            if updated != result:
+                result = updated
+                applied = True
+                break
+
+    return result.replace("†", "*")
 
 
-def publication_kind(pub: Publication) -> str:
-    text = f"{pub.venue} {pub.title}".lower()
-    if "patent" in text:
-        return "Patent"
-    if "arxiv" in text or "preprint" in text or "ssrn" in text:
-        return "Preprint"
-    if any(token in text for token in ["transactions", "journal", "ieee access", "tmlr", "pattern analysis and machine intelligence"]):
-        return "Journal"
-    if any(token in text for token in ["conference", "cvpr", "eccv", "neurips", "aaai", "iccv"]):
-        return "Conference"
-    return "Other"
+def yaml_quote(value: str) -> str:
+    escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
 
 
-def group_publications(publications: list[Publication]) -> dict[str, list[Publication]]:
-    grouped: dict[str, list[Publication]] = {
-        "Conference": [],
-        "Journal": [],
-        "Preprint": [],
-        "Patent": [],
-        "Other": [],
-    }
-    for pub in publications:
-        grouped[publication_kind(pub)].append(pub)
-    for key, items in grouped.items():
-        grouped[key] = sorted(items, key=publication_sort_key, reverse=True)
-    return grouped
+def write_outputs(publications: list[Publication]) -> None:
+    JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+    JSON_PATH.write_text(
+        json.dumps([asdict(pub) for pub in publications], ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
+    ordered = sorted(publications, key=publication_sort_key, reverse=True)
+    lines = ["papers:", ""]
+    for pub in ordered:
+        lines.extend(
+            [
+                f"  - title: {yaml_quote(pub.title)}",
+                f"    authors: {yaml_quote(emphasize_author(pub.title, pub.authors))}",
+                f"    venue: {yaml_quote(pub.venue)}",
+                f"    paper_pdf: {yaml_quote(pub.detail_url)}",
+            ]
+        )
+        if pub.cited_by_url:
+            lines.append(f"    cited_by: {yaml_quote(pub.cited_by_url)}")
+        lines.append("")
 
-def publication_sort_key(pub: Publication) -> tuple[int, str, str]:
-    year = int(extract_year(pub.year or pub.venue or "") or "0")
-    return (year, pub.venue or "", pub.title or "")
+    YAML_PATH.parent.mkdir(parents=True, exist_ok=True)
+    YAML_PATH.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def main() -> int:
     html = fetch_profile_html()
-    meta = parse_profile_meta(html)
     publications = parse_publications(html)
 
     if not publications:
         print("No publications found.", file=sys.stderr)
         return 1
 
-    DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
-    write_json(publications)
-    write_publications_page(meta, publications)
-    print(f"Imported {len(publications)} publications into {PAGE_PATH.relative_to(ROOT)}")
+    write_outputs(publications)
+    print(f"Imported {len(publications)} publications into {YAML_PATH.relative_to(ROOT)}")
     return 0
 
 

@@ -1,7 +1,7 @@
 # IDEs
 .idea/
 
-# Quarto
+# Generated site / local toolchains
 _site/
 .tools/
 

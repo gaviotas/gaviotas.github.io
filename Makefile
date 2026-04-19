@@ -1,16 +1,15 @@
-QUARTO := ./scripts/quarto-local
-PORT ?= 4173
+JEKYLL := ./scripts/jekyll-local
+PORT ?= 4000
 
-.PHONY: quarto-check render preview
+.PHONY: setup install render preview
 
-quarto-check:
-	$(QUARTO) check
+setup:
+	./scripts/setup-jekyll-local.sh
 
-render:
-	mkdir -p _site/pages
-	$(QUARTO) render
+install: setup
 
-preview:
-	mkdir -p _site/pages
-	$(QUARTO) render
-	python3 -m http.server $(PORT) -d _site
+render: install
+	$(JEKYLL) jekyll build
+
+preview: install
+	$(JEKYLL) jekyll serve --host 0.0.0.0 --port $(PORT)
