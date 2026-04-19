@@ -3,7 +3,7 @@ destination: ./_site
 includes: ./_includes
 baseurl: ""
 title: "Minhyun Lee"
-url: "https://minhyunlee.github.io"
+url: "https://minhyun-lee.github.io"
 exclude:
   - .tools
   - .git
