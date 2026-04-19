@@ -158,9 +158,7 @@ def write_json(publications: list[Publication]) -> None:
 def write_publications_page(meta: dict[str, str], publications: list[Publication]) -> None:
     grouped = group_publications(publications)
     lines = [
-        f"Profile: {meta['description']}" if meta["description"] else "",
-        "",
-        f"\\* indicates equal contribution. | [Google Scholar profile]({PROFILE_URL})",
+        "(*: Equal contribution)",
         "",
     ]
 
@@ -219,7 +217,7 @@ def format_publication(pub: Publication) -> list[str]:
         )
     block.extend(
         [
-            f"#### {title_link}",
+            title_link,
             "",
         ]
     )

@@ -1,6 +1,4 @@
-Profile: ‪AI Center, Samsung Electronics‬ - ‪Deep Learning‬ - ‪Computer Vision‬
-
-\* indicates equal contribution. | [Google Scholar profile](https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=en&cstart=0&pagesize=100)
+(*: Equal contribution)
 
 ### Journal
 
@@ -10,7 +8,7 @@ Profile: ‪AI Center, Samsung Electronics‬ - ‪Deep Learning‬ - ‪Compute
 TMLR 2025
 :::
 
-#### [MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:kNdYIx-mwKoC)
+[MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:kNdYIx-mwKoC)
 
 **M Lee**, S Lee, S Park, D Han, B Heo, H Shim
 
@@ -27,7 +25,7 @@ Transactions on Machine Learning Research (TMLR), 2025
 PAMI 2023
 :::
 
-#### [Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:roLk4NBRz8UC)
+[Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:roLk4NBRz8UC)
 
 **M Lee**, S Lee, J Lee, H Shim
 
@@ -44,7 +42,7 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI), 2023
 IEEE Access 2023
 :::
 
-#### [Hybridmatch: Semi-supervised facial landmark detection via hybrid heatmap representations](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:eQOLeE2rZwMC)
+[Hybridmatch: Semi-supervised facial landmark detection via hybrid heatmap representations](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:eQOLeE2rZwMC)
 
 S Kang, **M Lee**, M Kim, H Shim
 
@@ -66,7 +64,7 @@ IEEE Access 11, 26125-26135, 2023
 CVPR 2025
 :::
 
-#### [Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:Zph67rFs4hoC)
+[Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:Zph67rFs4hoC)
 
 J Choi, S Lee, **M Lee**, S Lee, H Shim
 
@@ -83,7 +81,7 @@ Conference on Computer Vision and Pattern Recognition (CVPR), 2025
 NeurIPS 2024
 :::
 
-#### [Understanding Multi-Granularity for Open-Vocabulary Part Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:UebtZRa9Y70C)
+[Understanding Multi-Granularity for Open-Vocabulary Part Segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:UebtZRa9Y70C)
 
 J Choi, S Lee, S Lee, **M Lee**, H Shim
 
@@ -100,7 +98,7 @@ Neural Information Processing Systems (NeurIPS), 2024
 ECCV 2024
 :::
 
-#### [SeiT++: Masked Token Modeling Improves Storage-efficient Training](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:hqOjcs7Dif8C)
+[SeiT++: Masked Token Modeling Improves Storage-efficient Training](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:hqOjcs7Dif8C)
 
 **M Lee**, S Park, B Heo, D Han, H Shim
 
@@ -117,7 +115,7 @@ European Conference on Computer Vision (ECCV), 2024
 CVPR 2022
 :::
 
-#### [Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:YsMSGLbcyi4C)
+[Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:YsMSGLbcyi4C)
 
 **M Lee**, D Kim, H Shim
 
@@ -134,7 +132,7 @@ Conference on Computer Vision and Pattern Recognition (CVPR), 2022
 CVPR 2021
 :::
 
-#### [Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:qjMakFHDy7sC)
+[Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:qjMakFHDy7sC)
 
 S Lee, **M Lee**, J Lee, H Shim
 
@@ -151,7 +149,7 @@ Conference on Computer Vision and Pattern Recognition (CVPR), 2021
 AAAI 2020
 :::
 
-#### [Psynet: Self-supervised approach to object localization using point symmetric transformation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:2osOgNQ5qMEC)
+[Psynet: Self-supervised approach to object localization using point symmetric transformation](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:2osOgNQ5qMEC)
 
 K Baek, **M Lee**, H Shim
 
@@ -173,7 +171,7 @@ AAAI Conference on Artificial Intelligence, 2020
 arXiv 2025
 :::
 
-#### [CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:ULOm3_A8WrAC)
+[CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:ULOm3_A8WrAC)
 
 NM An, I Kang, **M Lee**, H Shim
 
@@ -190,7 +188,7 @@ arXiv preprint arXiv:2509.23098, 2025
 SSRN
 :::
 
-#### [Rethinking Weakly Supervised Semantic Segmentation Utilizing Both Point and Image Labels](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:KlAtU1dfN6UC)
+[Rethinking Weakly Supervised Semantic Segmentation Utilizing Both Point and Image Labels](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:KlAtU1dfN6UC)
 
 **M Lee**, H Lee, H Shim
 
@@ -212,7 +210,7 @@ Available at SSRN 5062471, 0
 US Patent 2023
 :::
 
-#### [Weakly supervised semantic segmentation device and method based on pseudo-masks](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:LkGwnXOMwfcC)
+[Weakly supervised semantic segmentation device and method based on pseudo-masks](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2hUlCnQAAAAJ&pagesize=100&citation_for_view=2hUlCnQAAAAJ:LkGwnXOMwfcC)
 
 S Hyunjung, S Lee, **LEE Minhyun**
 

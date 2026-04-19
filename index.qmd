@@ -3,303 +3,75 @@ title: ""
 page-layout: full
 ---
 
-::: {.hero-shell}
-::: {.hero}
-::: {.hero-copy}
-::: {.hero-mark}
-Minhyun Lee
-:::
-
 # Minhyun Lee
 
-::: {.hero-tagline}
-Research Staff at Samsung Electronics AI Center building practical machine learning systems for semiconductor data intelligence and layout pattern generation.
-:::
+AI Researcher
 
-I work on industrial computer vision and generative modeling under limited supervision. My recent focus is semiconductor-chip data, especially misalignment prediction, data preprocessing, and layout pattern generation with diffusion, vision-language, and reinforcement learning based methods.
-
-::: {.hero-links}
-[Google Scholar](https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko){.btn-hero}
-[GitHub](https://github.com/gaviotas){.btn-ghost}
-[CV PDF](static/uploads/resume.pdf){.btn-ghost}
-:::
-
-::: {.hero-keywords}
-`Semiconductor Data`
-`Industrial Vision`
-`Label-Efficient Learning`
-`Layout Pattern Generation`
-`Diffusion / VLM / RL`
-`Dense Prediction`
-:::
-
-::: {.hero-metrics}
-::: {.metric}
-::: {.metric-value}
-12
-:::
-::: {.metric-label}
-Publications and patents
-:::
-:::
-
-::: {.metric}
-::: {.metric-value}
-CVPR / ECCV / PAMI
-:::
-::: {.metric-label}
-Representative venues
-:::
-:::
-
-::: {.metric}
-::: {.metric-value}
-Samsung AI Center
-:::
-::: {.metric-label}
-Current affiliation
-:::
-:::
-:::
-:::
-
-::: {.hero-visual}
-![](assets/profile/portrait.jpeg){.hero-photo}
-
-::: {.hero-note}
-::: {.hero-note-label}
-Currently
-:::
-
-Research Staff  
 Samsung Electronics AI Center
-:::
-:::
-:::
-:::
 
-::: {.content-band}
-::: {.section-intro}
-## About {#about}
-A concise profile focused on current role, research direction, and academic background.
-:::
+minhyunlee.ai [AT] gmail.com
 
-::: {.about-grid}
-::: {.about-copy}
-I am a Research Staff member at Samsung Electronics AI Center. My work sits between industrial machine learning and computer vision, with an emphasis on systems that remain reliable when data is noisy, labels are limited, and deployment constraints are real.
+[Google Scholar](https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko) / [GitHub](https://github.com/gaviotas) / [CV PDF](static/uploads/resume.pdf)
 
-Before joining Samsung Electronics, I completed my M.S. and Ph.D. in Integrated Technology at Yonsei University advised by Prof. Hyunjung Shim. Earlier work focused on weak supervision, semantic segmentation, localization, and representation learning; current work extends that foundation into semiconductor data intelligence and layout pattern generation.
-:::
+- [About](#about)
+- [News](#news)
+- [Publications](#publications)
+- [Education](#education)
+- [Experience](#experience)
+- [Academic Services](#academic-services)
 
-::: {.about-facts}
-### Current Focus
+#### About {#about}
 
-- Misalignment prediction for semiconductor-chip data
-- Label-efficient preprocessing and robust industrial learning
-- Layout pattern generation and benchmarking
-- Diffusion, VLM, and RL-based generation pipelines
+I am a Research Staff member at Samsung Electronics AI Center, where I work on semiconductor data intelligence and layout pattern generation. My research focuses on practical industrial machine learning systems that remain reliable when supervision is limited and data pipelines are imperfect.
 
-### Background
+Before joining Samsung Electronics, I completed my M.S. and Ph.D. in Integrated Technology at Yonsei University advised by Prof. Hyunjung Shim. My earlier research centered on weak supervision, semantic segmentation, localization, and representation learning, and my current work extends that foundation into semiconductor data and generative modeling.
 
-- Research Staff, Samsung Electronics AI Center
-- Former Research Staff, Samsung Electronics SAIT
-- Ph.D., Yonsei University
-- Research Internship, NAVER Cloud
-:::
-:::
+My current research interests include:
 
-::: {.section-intro}
-## Recent Highlights
-Recent work, transitions, and representative milestones.
-:::
+1. Misalignment prediction and robust preprocessing for semiconductor-chip data
+2. Label-efficient learning for industrial vision systems
+3. Layout pattern generation using diffusion, vision-language, and reinforcement learning based approaches
 
-::: {.highlight-list}
-::: {.highlight-item}
-::: {.highlight-date}
-2025
-:::
+#### News {#news}
 
-Accepted `MaskRIS` to TMLR and `Fine-Grained Image-Text Correspondence with Cost Aggregation` to CVPR.
-:::
+- 01.2025: `MaskRIS` accepted to Transactions on Machine Learning Research (TMLR).
+- 01.2025: `Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation` accepted to CVPR 2025.
+- 12.2024: Joined Samsung Electronics AI Center as Research Staff.
+- 10.2024: Started research work at Samsung Electronics SAIT on image generation.
+- 08.2024: Completed M.S. and Ph.D. in Integrated Technology at Yonsei University.
+- 07.2024: `SeiT++: Masked Token Modeling Improves Storage-efficient Training` accepted to ECCV 2024.
+- 12.2023: Completed research internship at NAVER Cloud on storage-efficient vision training and industrial-scale model development.
+- 01.2023: `Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation` published in PAMI.
 
-::: {.highlight-item}
-::: {.highlight-date}
-2024
-:::
+#### Publications {#publications}
 
-Published `SeiT++` at ECCV and joined Samsung Electronics after completing the Ph.D. at Yonsei University.
-:::
-
-::: {.highlight-item}
-::: {.highlight-date}
-2023
-:::
-
-Completed research internship at NAVER Cloud on storage-efficient vision training and industrial-scale model development.
-:::
-:::
-:::
-
-::: {.content-band .content-band-strong}
-::: {.section-intro}
-## Research {#research}
-Current industrial interests and the academic themes that shaped them.
-:::
-
-::: {.interest-grid}
-::: {.interest-column}
-### Current
-
-::: {.interest-item}
-#### Semiconductor Data Intelligence
-
-Robust preprocessing, misalignment prediction, and data-centric modeling for semiconductor-chip data under practical industrial constraints.
-:::
-
-::: {.interest-item}
-#### Layout Pattern Generation
-
-Generation and evaluation of semiconductor layout patterns using diffusion, vision-language, and reinforcement-learning based approaches.
-:::
-:::
-
-::: {.interest-column}
-### Previous
-
-::: {.interest-item}
-#### Label-Efficient Visual Learning
-
-Weak supervision, semi-supervised learning, and practical strategies for reducing annotation cost while preserving downstream utility.
-:::
-
-::: {.interest-item}
-#### Segmentation and Localization
-
-Dense prediction and object localization under limited supervision, with a focus on robust pseudo-supervision and scene understanding.
-:::
-:::
-:::
-
-::: {.section-intro}
-## Publications {#publications}
-Full publication list organized in a compact editorial format. Links point to the public Google Scholar entries.
-:::
-
-::: {.publication-shell}
 {{< include /_partials/_publications.qmd >}}
-:::
-:::
 
-::: {.content-band}
-::: {.section-intro}
-## Experience {#experience}
-Research and engineering roles across industrial AI, academic computer vision, and applied software development.
-:::
+#### Education {#education}
 
-::: {.resume-list}
-::: {.resume-item}
-::: {.resume-kicker}
-Dec. 2024 - Present
-:::
+Yonsei University  
+M.S. and Ph.D. in Integrated Technology, Mar. 2019 - Aug. 2024
 
-### Research Staff
+Yonsei University  
+B.S. in Computer Science, Mar. 2012 - Feb. 2019
 
-Samsung Electronics, AI Center
+#### Experience {#experience}
 
-Semiconductor data intelligence, misalignment prediction, and layout pattern generation for industrial chip-design workflows.
-:::
+Samsung Electronics AI Center  
+Research Staff, Dec. 2024 - Present
 
-::: {.resume-item}
-::: {.resume-kicker}
-Oct. 2024 - Dec. 2024
-:::
+Samsung Electronics SAIT  
+Research Staff, Oct. 2024 - Dec. 2024
 
-### Research Staff
+NAVER Cloud  
+Research Internship, Jul. 2023 - Dec. 2023
 
-Samsung Electronics, SAIT
+Yonsei University  
+Ph.D. Student, Mar. 2019 - Aug. 2024
 
-Image generation research with an emphasis on practical model development.
-:::
+Yonsei University  
+Student Intern, Jan. 2018 - Sep. 2018
 
-::: {.resume-item}
-::: {.resume-kicker}
-Jul. 2023 - Dec. 2023
-:::
+#### Academic Services {#academic-services}
 
-### Research Internship
-
-NAVER Cloud
-
-Storage-efficient vision training and industrial-scale model development.
-:::
-
-::: {.resume-item}
-::: {.resume-kicker}
-Mar. 2019 - Aug. 2024
-:::
-
-### Ph.D. Student
-
-Yonsei University
-
-Advisor: Prof. Hyunjung Shim  
-Research in computer vision, deep learning, weak supervision, and representation learning.
-:::
-
-::: {.resume-item}
-::: {.resume-kicker}
-Jan. 2018 - Sep. 2018
-:::
-
-### Student Intern
-
-Yonsei University
-
-Built software for an online learning platform.
-:::
-:::
-
-::: {.section-intro}
-## Education {#education}
-Formal training in integrated technology and computer science.
-:::
-
-::: {.resume-list}
-::: {.resume-item}
-::: {.resume-kicker}
-Mar. 2019 - Aug. 2024
-:::
-
-### M.S. and Ph.D. in Integrated Technology
-
-Yonsei University
-
-Advisor: Prof. Hyunjung Shim  
-Completed in Aug. 2024.
-:::
-
-::: {.resume-item}
-::: {.resume-kicker}
-Mar. 2012 - Feb. 2019
-:::
-
-### B.S. in Computer Science
-
-Yonsei University
-
-Graduated 2nd of 79.
-:::
-:::
-
-::: {.section-intro}
-## Contact
-The best way to reach me is by email or through the academic profiles below.
-:::
-
-::: {.contact-strip}
-[Email](mailto:minhyunlee.ai@gmail.com){.contact-link}
-[Google Scholar](https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=ko){.contact-link}
-[GitHub](https://github.com/gaviotas){.contact-link}
-[CV PDF](static/uploads/resume.pdf){.contact-link}
-:::
-:::
+Academic service details will be updated.
