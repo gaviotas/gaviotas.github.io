@@ -65,8 +65,12 @@ title: Home
   <ul class="award-list">
     {% for award in site.data.awards.awards %}
       {% assign award_year = award.date | split: "." | first %}
+      {% assign award_category = award.category | downcase %}
       <li class="award-item">
-        {% if award.date %}<span class="award-date award-date--{{ award_year }}">{{ award.date }}</span>{% endif %}
+        <div class="award-badges">
+          {% if award.date %}<span class="award-date award-date--{{ award_year }}">{{ award.date }}</span>{% endif %}
+          {% if award.category %}<span class="award-category award-category--{{ award_category }}">{{ award.category }}</span>{% endif %}
+        </div>
         <div class="award-copy">
           <span class="award-text">{{ award.text }}</span>
           {% if award.meta %}<span class="award-meta">{{ award.meta }}</span>{% endif %}
