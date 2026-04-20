@@ -162,6 +162,15 @@ h4 {
 }
 
 @media (max-width: 549px) {
+  .header .three.columns {
+    width: 72%;
+    float: none;
+    margin: 0 auto 2rem;
+  }
+  .header .nine.columns.main-description {
+    width: 100%;
+    margin-left: 0;
+  }
   .award-item {
     align-items: flex-start;
     flex-direction: column;
