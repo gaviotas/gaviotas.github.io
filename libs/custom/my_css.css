@@ -14,6 +14,10 @@ h4 {
   height: auto;
   border-radius: 4px;
 }
+.header .three.columns,
+.header .nine.columns {
+  box-sizing: border-box;
+}
 .main-description h1 {
   margin-bottom: 0px; }
 .main-description p {
@@ -149,6 +153,12 @@ h4 {
 @media (min-width: 550px) {
   .header {
     margin-top: 5rem; }
+  .header .three.columns {
+    width: 30%;
+  }
+  .header .nine.columns.main-description {
+    width: 66%;
+  }
 }
 
 @media (max-width: 549px) {
