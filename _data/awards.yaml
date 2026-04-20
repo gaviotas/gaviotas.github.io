@@ -1,0 +1,10 @@
+awards:
+  - date: "2026.04"
+    text: "Received the Grand Prize at the AIC Vision Awards."
+    meta: "AI Center, Samsung Electronics"
+  - date: "2025.10"
+    text: "Selected as a Proud Peer."
+    meta: "AI Center, Samsung Electronics"
+  - date: "2025.06"
+    text: "Selected as a CVPR 2025 Outstanding Reviewer."
+    meta: "711 / 12,593 reviewers"

@@ -59,6 +59,23 @@ title: Home
   {% endfor %}
 </div>
 
+<div class="docs-section" id="awards">
+  <h4>Awards &amp; Honors</h4>
+
+  <ul class="award-list">
+    {% for award in site.data.awards.awards %}
+      {% assign award_year = award.date | split: "." | first %}
+      <li class="award-item">
+        {% if award.date %}<span class="award-date award-date--{{ award_year }}">{{ award.date }}</span>{% endif %}
+        <div class="award-copy">
+          <span class="award-text">{{ award.text }}</span>
+          {% if award.meta %}<span class="award-meta">{{ award.meta }}</span>{% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
 <div class="docs-section" id="resume">
   <h4>Experience</h4>
 

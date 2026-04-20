@@ -4,17 +4,27 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CONDA_ENV_DIR="$ROOT_DIR/.tools/conda-jekyll"
 GEM_HOME_DIR="$ROOT_DIR/.tools/bundle"
+BREW_RUBY_FORMULA="ruby@3.2"
 
-if [[ ! -x "$CONDA_ENV_DIR/bin/ruby" ]]; then
-  echo "Local Ruby not found at $CONDA_ENV_DIR. Run ./scripts/setup-jekyll-local.sh first." >&2
+if [[ -x "$CONDA_ENV_DIR/bin/ruby" ]]; then
+  RUBY_BINDIR="$CONDA_ENV_DIR/bin"
+elif command -v brew >/dev/null 2>&1 && brew list "$BREW_RUBY_FORMULA" >/dev/null 2>&1; then
+  RUBY_BINDIR="$(brew --prefix "$BREW_RUBY_FORMULA")/bin"
+else
+  echo "Local Ruby environment is not ready. Run ./scripts/setup-jekyll-local.sh first." >&2
   exit 1
 fi
 
-export PATH="$CONDA_ENV_DIR/bin:$PATH"
+export PATH="$RUBY_BINDIR:$PATH"
 export GEM_HOME="$GEM_HOME_DIR"
 export GEM_PATH="$GEM_HOME_DIR"
 export BUNDLE_PATH="$GEM_HOME_DIR"
 export BUNDLE_BIN="$GEM_HOME_DIR/bin"
 export PATH="$BUNDLE_BIN:$PATH"
+
+if [[ "${1:-}" == "jekyll" ]]; then
+  shift
+  exec bundle exec jekyll "$@"
+fi
 
 exec "$@"
