@@ -11,17 +11,17 @@ experiences:
     subtitle: "Image generation and generative modeling research."
     category: "work"
 
-  - place: "Yonsei University"
-    time: "Mar 2019 - Aug 2024"
-    title: "M.S. and Ph.D. in Integrated Technology"
-    subtitle: "Advised by Prof. Hyunjung Shim. Research in weak supervision, semantic segmentation, and representation learning."
-    category: "school"
-
   - place: "Naver AI Lab"
     time: "Jul 2023 - Dec 2023"
     title: "Research Intern"
     subtitle: "Mentored by Song Park, Byeongho Heo, and Dongyoon Han.<br/>Worked on storage-efficient vision training."
     category: "work"
+
+  - place: "Yonsei University"
+    time: "Mar 2019 - Aug 2024"
+    title: "M.S. and Ph.D. in Integrated Technology"
+    subtitle: "Advised by Prof. Hyunjung Shim. Research in weak supervision, semantic segmentation, and representation learning."
+    category: "school"
 
   - place: "Yonsei University"
     time: "Mar 2012 - Feb 2019"
