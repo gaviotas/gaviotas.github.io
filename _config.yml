@@ -5,7 +5,16 @@ baseurl: ""
 title: "Minhyun Lee"
 url: "https://gaviotas.github.io"
 exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - Makefile
+  - README.md
   - .tools
   - .git
   - .github
+  - .jekyll-cache
+  - .omx
   - .quarto
+  - generated
+  - scripts

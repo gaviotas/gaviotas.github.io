@@ -24,7 +24,7 @@ Personal academic website rebuilt on top of the original `msaveski/www_personal`
 ├── _layouts/
 ├── assets/
 │   ├── cv/cv_web.pdf
-│   └── profile/portrait.jpeg
+│   └── profile/portrait-20260420.jpeg
 ├── index.html
 ├── libs/
 ├── scripts/

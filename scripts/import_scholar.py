@@ -57,11 +57,20 @@ EQUAL_CONTRIBUTION_AUTHORS = {
         "S Lee",
     ],
 }
+DEFAULT_CORRESPONDING_AUTHORS = ["H Shim"]
+ADDITIONAL_CORRESPONDING_AUTHORS = {
+    "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": [
+        "B Heo",
+    ],
+}
 TITLE_OVERRIDES = {
     "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP": "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding",
 }
 PAPER_URL_OVERRIDES = {
     "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://arxiv.org/abs/2312.10105",
+}
+VENUE_OVERRIDES = {
+    "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding": "European Conference on Computer Vision (ECCV), 2026",
 }
 CODE_URL_OVERRIDES = {
     "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": "https://github.com/naver-ai/maskris",
@@ -199,13 +208,37 @@ def parse_publications(html: str) -> list[Publication]:
 
 
 def publication_sort_key(pub: Publication) -> tuple[int, str, str]:
-    year = extract_year(pub.year or pub.venue or "")
-    return (int(year or "0"), pub.venue or "", pub.title or "")
+    title = resolve_title(pub.title)
+    venue = resolve_venue(title, pub.venue)
+    year = extract_year(venue or pub.year or "")
+    return (int(year or "0"), venue or "", title or "")
 
 
 def extract_year(text: str) -> str:
     match = re.search(r"(19|20)\d{2}", text)
     return match.group(0) if match else ""
+
+
+def author_patterns(name: str) -> list[str]:
+    if name == "M Lee":
+        return [
+            r"<b>M Lee</b>",
+            r"<b>Minhyun Lee</b>",
+            r"<b>LEE Minhyun</b>",
+        ]
+    return [re.escape(name)]
+
+
+def add_author_note(text: str, name: str, note_class: str, symbol: str) -> str:
+    marker = f'<span class="{note_class}">{symbol}</span>'
+
+    for candidate in author_patterns(name):
+        pattern = rf"({candidate})(?!{re.escape(marker)})"
+        updated = re.sub(pattern, lambda match: f"{match.group(1)}{marker}", text, count=1)
+        if updated != text:
+            return updated
+
+    return text
 
 
 def emphasize_author(title: str, authors: str) -> str:
@@ -215,30 +248,24 @@ def emphasize_author(title: str, authors: str) -> str:
         result = re.sub(pattern, lambda m: f"<b>{m.group(0)}</b>", result)
 
     for name in EQUAL_CONTRIBUTION_AUTHORS.get(title, []):
-        candidates = []
-        if name == "M Lee":
-            candidates = [
-                r"<b>M Lee</b>",
-                r"<b>Minhyun Lee</b>",
-                r"<b>LEE Minhyun</b>",
-            ]
-        else:
-            candidates = [re.escape(name)]
+        result = add_author_note(result, name, "equal-note", "*")
 
-        applied = False
-        for candidate in candidates:
-            pattern = rf"({candidate})(?!<span class=\"equal-note\">\*</span>)"
-            updated = re.sub(pattern, r'\1<span class="equal-note">*</span>', result, count=1)
-            if updated != result:
-                result = updated
-                applied = True
-                break
+    corresponding_authors = [
+        *DEFAULT_CORRESPONDING_AUTHORS,
+        *ADDITIONAL_CORRESPONDING_AUTHORS.get(title, []),
+    ]
+    for name in corresponding_authors:
+        result = add_author_note(result, name, "corresponding-note", "&dagger;")
 
     return result.replace("†", "*")
 
 
 def resolve_title(title: str) -> str:
     return TITLE_OVERRIDES.get(title, title)
+
+
+def resolve_venue(title: str, venue: str) -> str:
+    return VENUE_OVERRIDES.get(title, venue)
 
 
 def resolve_publication_link(title: str, detail_url: str) -> str:
@@ -288,12 +315,13 @@ def write_outputs(publications: list[Publication]) -> None:
     lines = ["papers:", ""]
     for pub in ordered:
         resolved_title = resolve_title(pub.title)
+        resolved_venue = resolve_venue(resolved_title, pub.venue)
         resolved_link = resolve_publication_link(resolved_title, pub.detail_url)
         lines.extend(
             [
                 f"  - title: {yaml_quote(resolved_title)}",
                 f"    authors: {yaml_quote(emphasize_author(resolved_title, pub.authors))}",
-                f"    venue: {yaml_quote(pub.venue)}",
+                f"    venue: {yaml_quote(resolved_venue)}",
                 f"    paper_pdf: {yaml_quote(resolved_link)}",
             ]
         )

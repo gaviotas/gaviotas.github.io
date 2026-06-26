@@ -1,9 +1,11 @@
 # IDEs
 .idea/
+.DS_Store
 
 # Generated site / local toolchains
 _site/
 .tools/
+.jekyll-cache/
 
 /.quarto/
 **/*.quarto_ipynb
