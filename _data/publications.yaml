@@ -4,6 +4,7 @@ papers:
     authors: "NM An<span class=\"equal-note\">*</span>, I Kang<span class=\"equal-note\">*</span>, <b>M Lee</b>, H Shim<span class=\"corresponding-note\">&dagger;</span>"
     venue: "European Conference on Computer Vision (ECCV), 2026"
     paper_pdf: "https://arxiv.org/abs/2509.23098"
+    code: "https://github.com/kaist-cvml/Biased2Grounded"
 
   - title: "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation"
     authors: "<b>M Lee</b><span class=\"equal-note\">*</span>, S Lee<span class=\"equal-note\">*</span>, S Park, D Han, B Heo<span class=\"corresponding-note\">&dagger;</span>, H Shim<span class=\"corresponding-note\">&dagger;</span>"

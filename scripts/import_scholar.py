@@ -73,6 +73,7 @@ VENUE_OVERRIDES = {
     "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding": "European Conference on Computer Vision (ECCV), 2026",
 }
 CODE_URL_OVERRIDES = {
+    "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding": "https://github.com/kaist-cvml/Biased2Grounded",
     "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": "https://github.com/naver-ai/maskris",
     "Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation": "https://github.com/kaist-cvml/part-catseg",
     "Understanding Multi-Granularity for Open-Vocabulary Part Segmentation": "https://github.com/kaist-cvml/part-clipseg",
