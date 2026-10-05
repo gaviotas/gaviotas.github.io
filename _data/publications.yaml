@@ -1,5 +1,11 @@
 papers:
 
+  - title: "Keep It CALM: Analyzing the Limits of Global Unsafety in Text-to-Image Generation"
+    authors: "N Park, <b>M Lee</b>, H Shim<span class=\"corresponding-note\">&dagger;</span>"
+    venue: "Neural Information Processing Systems (NeurIPS), 2026"
+    paper_pdf: "https://arxiv.org/abs/2610.02300"
+    code: "https://github.com/nahyeonkaty/calm"
+
   - title: "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding"
     authors: "NM An<span class=\"equal-note\">*</span>, I Kang<span class=\"equal-note\">*</span>, <b>M Lee</b>, H Shim<span class=\"corresponding-note\">&dagger;</span>"
     venue: "European Conference on Computer Vision (ECCV), 2026"
