@@ -1,0 +1,40 @@
+headline: "Machine learning with imperfect data, from visual understanding to industrial AI."
+research_domains: "Computer vision / Industrial AI"
+
+introduction: >-
+  I study how visual models can learn from limited, noisy, or indirect supervision,
+  then carry those ideas into practical industrial AI. My work spans semantic
+  understanding, efficient representation learning, robust data preparation, and
+  generative methods for semiconductor data and layout patterns.
+
+background: >-
+  I completed my M.S. and Ph.D. in Integrated Technology at Yonsei University under
+  Prof. <a href="https://kaist-cvml.github.io/index.html" target="_blank" rel="noopener">Hyunjung Shim</a>,
+  studying weakly supervised vision, segmentation, localization, and representation
+  learning. During an internship at NAVER AI Lab, I worked with
+  <a href="https://8uos.github.io/" target="_blank" rel="noopener">Song Park</a>,
+  <a href="https://sites.google.com/view/byeongho-heo/home" target="_blank" rel="noopener">Byeongho Heo</a>,
+  and <a href="https://sites.google.com/site/dyhan0920/" target="_blank" rel="noopener">Dongyoon Han</a>
+  on storage-efficient visual training.
+
+research_areas:
+  - title: "Learning with limited supervision"
+    diagram: "supervision"
+    description: >-
+      I develop methods that learn reliable visual concepts from image labels, point
+      annotations, saliency cues, pseudo-labels, and other incomplete signals, with a
+      focus on segmentation and localization.
+
+  - title: "Visual representation and efficiency"
+    diagram: "representation"
+    description: >-
+      I study representations that connect language and visual structure at useful
+      levels of detail, while reducing the storage and supervision required to train
+      strong vision models.
+
+  - title: "Industrial AI and layout generation"
+    diagram: "layout"
+    description: >-
+      I apply these research ideas to semiconductor data, where noisy pipelines,
+      structured patterns, and operational constraints shape the design of robust
+      data models and generative layout methods.

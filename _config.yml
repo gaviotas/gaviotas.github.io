@@ -10,6 +10,7 @@ exclude:
   - LICENSE.md
   - Makefile
   - README.md
+  - DESIGN.md
   - .tools
   - .git
   - .github

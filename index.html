@@ -3,101 +3,90 @@ layout: default
 title: Home
 ---
 
-<div class="docs-section" id="bio">
-  <h4>About</h4>
-  <p>
-    I am a Staff Engineer at Samsung Electronics AX/PI Center, where I work on semiconductor data intelligence and layout pattern generation. My research focuses on practical machine learning systems that remain reliable under limited supervision, noisy labels, and imperfect industrial data pipelines.
-  </p>
+<section class="docs-section" id="bio" aria-labelledby="about-heading">
+  <h2 id="about-heading"><span class="section-index" aria-hidden="true">01</span> About</h2>
+  <p class="intro">{{ site.data.profile.introduction }}</p>
+  <p>{{ site.data.profile.background }}</p>
 
-  <p>
-    Before joining Samsung Electronics, I completed my M.S. and Ph.D. in Integrated Technology at Yonsei University, advised by Prof. <a href="https://kaist-cvml.github.io/index.html" target="_blank">Hyunjung Shim</a>. I also interned at NAVER AI Lab with <a href="https://8uos.github.io/" target="_blank">Song Park</a>, <a href="https://sites.google.com/view/byeongho-heo/home" target="_blank">Byeongho Heo</a>, and <a href="https://sites.google.com/site/dyhan0920/" target="_blank">Dongyoon Han</a>. My earlier research centered on weak supervision, semantic segmentation, localization, and representation learning. More recently, I have been working on semiconductor data modeling, generative methods, and robust preprocessing for industrial AI systems.
-  </p>
-
-  <p>
-    My current interests include label-efficient learning, robust industrial vision systems, and semiconductor layout generation.
-  </p>
-</div>
-
-<div class="docs-section" id="publications">
-  <h4>Publications</h4>
-
-  <p>
-    (<span class="equal-note">*</span> indicates equal contribution; <span class="corresponding-note">&dagger;</span> indicates corresponding author.)
-  </p>
-
-  {% for paper in site.data.publications.papers %}
-    <div class="paper">
-      <p class="title"><b>{{ paper.title }}</b></p>
-      <p>{{ paper.authors }}</p>
-      <p><i>{{ paper.venue }}</i></p>
-      <div class="paper-buttons">
-        {% if paper.paper_pdf %}
-          <a class="button" href="{{ paper.paper_pdf }}" target="_blank">paper</a>
-        {% endif %}
-        {% if paper.code %}
-          <a class="button" href="{{ paper.code }}" target="_blank">code</a>
-        {% endif %}
-      </div>
-    </div>
-  {% endfor %}
-</div>
-
-<div class="docs-section" id="patents">
-  <h4>Patents</h4>
-
-  {% for patent in site.data.patents.patents %}
-    <div class="paper">
-      <p class="title"><b>{{ patent.title }}</b></p>
-      <p>{{ patent.inventors }}</p>
-      <p><i>{{ patent.details }}</i></p>
-      <div class="paper-buttons">
-        {% if patent.link %}
-          <a class="button" href="{{ patent.link }}" target="_blank">patent</a>
-        {% endif %}
-      </div>
-    </div>
-  {% endfor %}
-</div>
-
-<div class="docs-section" id="awards">
-  <h4>Awards &amp; Honors</h4>
-
-  <ul class="award-list">
-    {% for award in site.data.awards.awards %}
-      {% assign award_year = award.date | split: "." | first %}
-      {% assign award_category = award.category | downcase %}
-      <li class="award-item">
-        <div class="award-badges">
-          {% if award.date %}<span class="award-date award-date--{{ award_year }}">{{ award.date }}</span>{% endif %}
-          {% if award.category %}<span class="award-category award-category--{{ award_category }}">{{ award.category }}</span>{% endif %}
-        </div>
-        <div class="award-copy">
-          <span class="award-text">{{ award.text }}</span>
-          {% if award.meta %}<span class="award-meta">{{ award.meta }}</span>{% endif %}
-        </div>
+  <div class="research-overview">
+    <h3>Research focus</h3>
+    <ul class="research-areas">
+      {% for area in site.data.profile.research_areas %}
+      <li>
+        {% include research_diagram.html kind=area.diagram %}
+        <h4>{{ area.title }}</h4>
+        <p>{{ area.description }}</p>
       </li>
-    {% endfor %}
-  </ul>
-</div>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
 
-<div class="docs-section" id="resume">
-  <h4>Experience</h4>
+<section class="docs-section" id="publications" aria-labelledby="publications-heading">
+  <h2 id="publications-heading"><span class="section-index" aria-hidden="true">02</span> Publications</h2>
+  <p class="section-description">My publications span weak supervision, visual representation learning, and generative models.</p>
+  <p class="publication-notes"><span class="equal-note">*</span> Equal contribution · <span class="corresponding-note">†</span> Corresponding author</p>
 
-  <ul class="timeline">
-    {% for exp in site.data.experience.experiences %}
-    <li>
-      {% if exp.category == "work" %}
-      <div class="direction-l">
-      {% else %}
-      <div class="direction-r">
-      {% endif %}
-        <div class="flag-wrapper">
-          <span class="flag">{{ exp.place }}</span>
-          <span class="time-wrapper"><span class="time">{{ exp.time }}</span></span>
+  {% assign publication_groups = site.data.publications.papers | group_by_exp: "paper", "paper.venue | split: ',' | last | strip" %}
+  {% for group in publication_groups %}
+  <section class="publication-group" aria-labelledby="publication-year-{{ forloop.index }}">
+    <h3 class="publication-year" id="publication-year-{{ forloop.index }}">{% if group.name == '0' or group.name == '' %}Preprints{% else %}{{ group.name }}{% endif %}</h3>
+    <div class="publication-list">
+      {% for paper in group.items %}
+      <article class="paper">
+        <h4 class="paper-title">{{ paper.title }}</h4>
+        <p class="paper-authors">{{ paper.authors }}</p>
+        <p class="paper-venue">{{ paper.venue | remove: ', 0' }}</p>
+        <div class="paper-links">
+          {% if paper.paper_pdf %}<a class="resource-link" href="{{ paper.paper_pdf }}" target="_blank" rel="noopener" aria-label="Paper: {{ paper.title | escape }}">Paper</a>{% endif %}
+          {% if paper.code %}<a class="resource-link" href="{{ paper.code }}" target="_blank" rel="noopener" aria-label="Code: {{ paper.title | escape }}">Code</a>{% endif %}
         </div>
-        <div class="desc"><b>{{ exp.title }}</b><br/>{{ exp.subtitle }}</div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+</section>
+
+<section class="docs-section" id="patents" aria-labelledby="patents-heading">
+  <h2 id="patents-heading"><span class="section-index" aria-hidden="true">03</span> Patents</h2>
+  {% for patent in site.data.patents.patents %}
+  <article class="paper">
+    <h3 class="paper-title">{{ patent.title }}</h3>
+    <p class="paper-authors">{{ patent.inventors }}</p>
+    <p class="paper-venue">{{ patent.details }}</p>
+    {% if patent.link %}<div class="paper-links"><a class="resource-link" href="{{ patent.link }}" target="_blank" rel="noopener" aria-label="Patent: {{ patent.title | escape }}">Patent</a></div>{% endif %}
+  </article>
+  {% endfor %}
+</section>
+
+<section class="docs-section" id="awards" aria-labelledby="awards-heading">
+  <h2 id="awards-heading"><span class="section-index" aria-hidden="true">04</span> Awards &amp; Honors</h2>
+  <ul class="dated-list award-list">
+    {% for award in site.data.awards.awards %}
+    <li>
+      <span class="entry-date">{{ award.date }}</span>
+      <div class="entry-copy">
+        <p class="entry-title">{{ award.text }}</p>
+        {% if award.meta %}<p class="entry-detail">{{ award.meta }}</p>{% endif %}
       </div>
     </li>
     {% endfor %}
   </ul>
-</div>
+</section>
+
+<section class="docs-section" id="resume" aria-labelledby="experience-heading">
+  <h2 id="experience-heading"><span class="section-index" aria-hidden="true">05</span> Experience &amp; Education</h2>
+  <ul class="dated-list experience-list">
+    {% for exp in site.data.experience.experiences %}
+    <li>
+      <span class="entry-date">{{ exp.time }}</span>
+      <div class="entry-copy">
+        <h3 class="entry-title">{{ exp.place }}</h3>
+        <p class="entry-role">{{ exp.title }}</p>
+        {% if exp.subtitle != '' %}<p class="entry-detail">{{ exp.subtitle }}</p>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

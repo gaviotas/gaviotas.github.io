@@ -1,0 +1,32 @@
+<svg class="research-diagram" viewBox="0 0 240 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  {% case include.kind %}
+  {% when 'supervision' %}
+  <g fill="none" stroke="currentColor" stroke-width="1.5">
+    <rect x="12" y="16" width="74" height="64" rx="4" opacity="0.25"/>
+    <path d="M25 64L42 32L69 44L60 66Z" stroke-dasharray="3 4" opacity="0.45"/>
+    <path d="M100 48H130M124 42L130 48L124 54" opacity="0.6"/>
+    <rect x="148" y="16" width="74" height="64" rx="4" opacity="0.25"/>
+    <path d="M160 64L177 32L204 44L195 66Z" fill="currentColor" fill-opacity="0.1"/>
+  </g>
+  <g fill="currentColor"><circle cx="42" cy="32" r="3"/><circle cx="69" cy="44" r="3"/><circle cx="60" cy="66" r="3"/></g>
+  {% when 'representation' %}
+  <g fill="none" stroke="currentColor" stroke-width="1.5">
+    <rect x="12" y="17" width="57" height="57" rx="3" opacity="0.25"/>
+    <path d="M31 17V74M50 17V74M12 36H69M12 55H69" opacity="0.25"/>
+    <path d="M82 45H113M107 39L113 45L107 51" opacity="0.6"/>
+    <rect x="145" y="27" width="76" height="38" rx="3" opacity="0.25"/>
+    <path d="M164 27V65M183 27V65M202 27V65M145 46H221" opacity="0.25"/>
+  </g>
+  <rect x="32" y="37" width="17" height="17" rx="2" fill="currentColor" opacity="0.18"/>
+  <g fill="currentColor" opacity="0.15"><rect x="146" y="28" width="17" height="17"/><rect x="184" y="28" width="17" height="17"/><rect x="165" y="47" width="17" height="17"/><rect x="203" y="47" width="17" height="17"/></g>
+  {% when 'layout' %}
+  <g fill="none" stroke="currentColor" stroke-width="1.5">
+    <rect x="12" y="16" width="74" height="64" rx="4" opacity="0.25"/>
+    <path d="M30 16V80M49 16V80M68 16V80M12 32H86M12 48H86M12 64H86" opacity="0.2"/>
+    <path d="M100 48H130M124 42L130 48L124 54" opacity="0.6"/>
+    <rect x="148" y="16" width="74" height="64" rx="4" opacity="0.25"/>
+    <path d="M158 30H180V66H213M158 48H167V22H195V49H213M158 68H173V58H204V22" opacity="0.7"/>
+  </g>
+  <g fill="currentColor"><rect x="177" y="27" width="6" height="6" rx="1"/><rect x="192" y="46" width="6" height="6" rx="1"/></g>
+  {% endcase %}
+</svg>
