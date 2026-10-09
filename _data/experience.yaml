@@ -1,30 +1,50 @@
 experiences:
   - place: "Samsung Electronics AX/PI Center"
-    time: "Dec 2024 - Present"
+    logo: "/assets/organizations/samsung.svg"
+    logo_width: 130
+    logo_height: 29
+    start: "2024-12"
+    end: "present"
     title: "Staff Engineer"
-    subtitle: "Semiconductor data intelligence, layout generation, and reliable industrial machine learning systems."
+    subtitle: "Semiconductor data modeling and layout generation."
     category: "work"
 
   - place: "Samsung Electronics SAIT"
-    time: "Oct 2024 - Dec 2024"
+    logo: "/assets/organizations/samsung.svg"
+    logo_width: 130
+    logo_height: 29
+    start: "2024-10"
+    end: "2024-12"
     title: "Staff Engineer"
-    subtitle: "Image generation and generative modeling research."
+    subtitle: "Generative modeling for images."
     category: "work"
 
-  - place: "Naver AI Lab"
-    time: "Jul 2023 - Dec 2023"
+  - place: "NAVER AI Lab"
+    logo: "/assets/organizations/naver-black.png"
+    logo_width: 716
+    logo_height: 138
+    start: "2023-07"
+    end: "2023-12"
     title: "Research Intern"
-    subtitle: "Mentored by Song Park, Byeongho Heo, and Dongyoon Han.<br/>Worked on storage-efficient vision training."
+    subtitle: "Storage-efficient visual training.<br/>Mentored by <a href=\"https://8uos.github.io/\" target=\"_blank\" rel=\"noopener\">Song Park</a>, <a href=\"https://sites.google.com/view/byeongho-heo/home\" target=\"_blank\" rel=\"noopener\">Byeongho Heo</a>, and <a href=\"https://sites.google.com/site/dyhan0920/\" target=\"_blank\" rel=\"noopener\">Dongyoon Han</a>."
     category: "work"
 
   - place: "Yonsei University"
-    time: "Mar 2019 - Aug 2024"
+    logo: "/assets/organizations/yonsei-black.png"
+    logo_width: 173
+    logo_height: 173
+    start: "2019-03"
+    end: "2024-08"
     title: "M.S. and Ph.D. in Integrated Technology"
-    subtitle: "Advised by Prof. Hyunjung Shim. Research in weak supervision, semantic segmentation, and representation learning."
+    subtitle: "Advised by Prof. <a href=\"https://kaist-cvml.github.io/index.html\" target=\"_blank\" rel=\"noopener\">Hyunjung Shim</a>."
     category: "school"
 
   - place: "Yonsei University"
-    time: "Mar 2012 - Feb 2019"
+    logo: "/assets/organizations/yonsei-black.png"
+    logo_width: 173
+    logo_height: 173
+    start: "2012-03"
+    end: "2019-02"
     title: "B.S. in Computer Science"
     subtitle: ""
     category: "school"

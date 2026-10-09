@@ -4,15 +4,18 @@ title: Home
 ---
 
 <section class="docs-section" id="bio" aria-labelledby="about-heading">
-  <h2 id="about-heading"><span class="section-index" aria-hidden="true">01</span> About</h2>
+  <h2 id="about-heading">About</h2>
+  <div class="section-body">
   <p class="intro">{{ site.data.profile.introduction }}</p>
+  <p>{{ site.data.profile.research_background }}</p>
   <p>{{ site.data.profile.background }}</p>
+  </div>
 
   <div class="research-overview">
     <h3>Research focus</h3>
     <ul class="research-areas">
       {% for area in site.data.profile.research_areas %}
-      <li>
+      <li id="research-{{ area.diagram }}">
         {% include research_diagram.html kind=area.diagram %}
         <h4>{{ area.title }}</h4>
         <p>{{ area.description }}</p>
@@ -23,8 +26,8 @@ title: Home
 </section>
 
 <section class="docs-section" id="publications" aria-labelledby="publications-heading">
-  <h2 id="publications-heading"><span class="section-index" aria-hidden="true">02</span> Publications</h2>
-  <p class="section-description">My publications span weak supervision, visual representation learning, and generative models.</p>
+  <h2 id="publications-heading">Publications</h2>
+  <div class="section-body">
   <p class="publication-notes"><span class="equal-note">*</span> Equal contribution · <span class="corresponding-note">†</span> Corresponding author</p>
 
   {% assign publication_groups = site.data.publications.papers | group_by_exp: "paper", "paper.venue | split: ',' | last | strip" %}
@@ -36,57 +39,76 @@ title: Home
       <article class="paper">
         <h4 class="paper-title">{{ paper.title }}</h4>
         <p class="paper-authors">{{ paper.authors }}</p>
-        <p class="paper-venue">{{ paper.venue | remove: ', 0' }}</p>
+        <p class="paper-venue">{% assign venue_name = paper.venue | split: ',' | first | strip %}{% assign venue_year = paper.venue | split: ',' | last | strip %}{{ site.data.publication_venues[venue_name] | default: venue_name }}{% unless venue_year == '0' or venue_year == '' %} · {{ venue_year }}{% endunless %}</p>
         <div class="paper-links">
-          {% if paper.paper_pdf %}<a class="resource-link" href="{{ paper.paper_pdf }}" target="_blank" rel="noopener" aria-label="Paper: {{ paper.title | escape }}">Paper</a>{% endif %}
-          {% if paper.code %}<a class="resource-link" href="{{ paper.code }}" target="_blank" rel="noopener" aria-label="Code: {{ paper.title | escape }}">Code</a>{% endif %}
+          {% if paper.paper_pdf %}<a class="resource-link" href="{{ paper.paper_pdf }}" target="_blank" rel="noopener" aria-label="Paper: {{ paper.title | escape }}">{% include icon.html name='paper' %} Paper</a>{% endif %}
+          {% if paper.code %}<a class="resource-link" href="{{ paper.code }}" target="_blank" rel="noopener" aria-label="Code: {{ paper.title | escape }}">{% include icon.html name='code' %} Code</a>{% endif %}
         </div>
       </article>
       {% endfor %}
     </div>
   </section>
   {% endfor %}
+  </div>
 </section>
 
 <section class="docs-section" id="patents" aria-labelledby="patents-heading">
-  <h2 id="patents-heading"><span class="section-index" aria-hidden="true">03</span> Patents</h2>
+  <h2 id="patents-heading">Patents</h2>
+  <div class="section-body">
   {% for patent in site.data.patents.patents %}
   <article class="paper">
     <h3 class="paper-title">{{ patent.title }}</h3>
     <p class="paper-authors">{{ patent.inventors }}</p>
     <p class="paper-venue">{{ patent.details }}</p>
-    {% if patent.link %}<div class="paper-links"><a class="resource-link" href="{{ patent.link }}" target="_blank" rel="noopener" aria-label="Patent: {{ patent.title | escape }}">Patent</a></div>{% endif %}
+    {% if patent.link %}<div class="paper-links"><a class="resource-link" href="{{ patent.link }}" target="_blank" rel="noopener" aria-label="Patent: {{ patent.title | escape }}">{% include icon.html name='patent' %} Patent</a></div>{% endif %}
   </article>
   {% endfor %}
+  </div>
 </section>
 
 <section class="docs-section" id="awards" aria-labelledby="awards-heading">
-  <h2 id="awards-heading"><span class="section-index" aria-hidden="true">04</span> Awards &amp; Honors</h2>
-  <ul class="dated-list award-list">
+  <h2 id="awards-heading">Awards &amp; Honors</h2>
+  <div class="section-body">
+  <ul class="award-list">
     {% for award in site.data.awards.awards %}
     <li>
-      <span class="entry-date">{{ award.date }}</span>
-      <div class="entry-copy">
-        <p class="entry-title">{{ award.text }}</p>
-        {% if award.meta %}<p class="entry-detail">{{ award.meta }}</p>{% endif %}
+      {% assign award_month = award.date | replace: '.', '-' %}
+      <div class="award-date">{% include date_stamp.html value=award_month %}</div>
+      <div class="award-copy">
+        <h3>{{ award.text }}</h3>
+        {% if award.meta %}<p>{{ award.meta }}</p>{% endif %}
       </div>
     </li>
     {% endfor %}
   </ul>
+  </div>
 </section>
 
 <section class="docs-section" id="resume" aria-labelledby="experience-heading">
-  <h2 id="experience-heading"><span class="section-index" aria-hidden="true">05</span> Experience &amp; Education</h2>
+  <h2 id="experience-heading">Experience &amp; Education</h2>
+  <div class="section-body">
   <ul class="dated-list experience-list">
     {% for exp in site.data.experience.experiences %}
     <li>
-      <span class="entry-date">{{ exp.time }}</span>
+      <div class="date-range">
+        {% include date_stamp.html value=exp.start %}
+        <span class="date-separator">–</span>
+        {% if exp.end == 'present' %}
+        <span>Present</span>
+        {% else %}
+        {% include date_stamp.html value=exp.end %}
+        {% endif %}
+      </div>
       <div class="entry-copy">
-        <h3 class="entry-title">{{ exp.place }}</h3>
+        <div class="entry-heading">
+          <h3 class="entry-title">{{ exp.place }}</h3>
+          {% if exp.logo %}<span class="organization-logo"><img src="{{ exp.logo | prepend: site.baseurl }}" width="{{ exp.logo_width }}" height="{{ exp.logo_height }}" alt="" loading="lazy"></span>{% endif %}
+        </div>
         <p class="entry-role">{{ exp.title }}</p>
         {% if exp.subtitle != '' %}<p class="entry-detail">{{ exp.subtitle }}</p>{% endif %}
       </div>
     </li>
     {% endfor %}
   </ul>
+  </div>
 </section>

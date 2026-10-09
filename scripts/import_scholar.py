@@ -24,11 +24,11 @@ EQUAL_CONTRIBUTION_AUTHORS = {
         "NM An",
         "I Kang",
     ],
-    "Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds": [
+    "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds": [
         "M Lee",
         "D Kim",
     ],
-    "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation": [
+    "Railroad Is Not a Train: Saliency As Pseudo-Pixel Supervision for Weakly Supervised Semantic Segmentation": [
         "M Lee",
         "S Lee",
     ],
@@ -36,15 +36,15 @@ EQUAL_CONTRIBUTION_AUTHORS = {
         "M Lee",
         "S Park",
     ],
-    "Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation": [
+    "Saliency as Pseudo-Pixel Supervision for Weakly and Semi-Supervised Semantic Segmentation": [
         "M Lee",
         "S Lee",
     ],
-    "Hybridmatch: Semi-supervised facial landmark detection via hybrid heatmap representations": [
+    "HybridMatch: Semi-Supervised Facial Landmark Detection via Hybrid Heatmap Representations": [
         "S Kang",
         "M Lee",
     ],
-    "Psynet: Self-supervised approach to object localization using point symmetric transformation": [
+    "PsyNet: Self-Supervised Approach to Object Localization Using Point Symmetric Transformation": [
         "K Baek",
         "M Lee",
     ],
@@ -64,9 +64,15 @@ ADDITIONAL_CORRESPONDING_AUTHORS = {
     ],
 }
 TITLE_OVERRIDES = {
+    "Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds": "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds",
+    "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation": "Railroad Is Not a Train: Saliency As Pseudo-Pixel Supervision for Weakly Supervised Semantic Segmentation",
+    "Psynet: Self-supervised approach to object localization using point symmetric transformation": "PsyNet: Self-Supervised Approach to Object Localization Using Point Symmetric Transformation",
+    "Hybridmatch: Semi-supervised facial landmark detection via hybrid heatmap representations": "HybridMatch: Semi-Supervised Facial Landmark Detection via Hybrid Heatmap Representations",
+    "Saliency as pseudo-pixel supervision for weakly and semi-supervised semantic segmentation": "Saliency as Pseudo-Pixel Supervision for Weakly and Semi-Supervised Semantic Segmentation",
     "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP": "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding",
 }
 PAPER_URL_OVERRIDES = {
+    "PsyNet: Self-Supervised Approach to Object Localization Using Point Symmetric Transformation": "https://ojs.aaai.org/index.php/AAAI/article/view/6615",
     "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://arxiv.org/abs/2312.10105",
 }
 VENUE_OVERRIDES = {
@@ -78,9 +84,9 @@ CODE_URL_OVERRIDES = {
     "Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation": "https://github.com/kaist-cvml/part-catseg",
     "Understanding Multi-Granularity for Open-Vocabulary Part Segmentation": "https://github.com/kaist-cvml/part-clipseg",
     "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://github.com/naver-ai/seit",
-    "Threshold matters in wsss: Manipulating the activation for the robust and accurate segmentation model against thresholds": "https://github.com/gaviotas/AMN",
-    "Railroad is not a train: Saliency as pseudo-pixel supervision for weakly supervised semantic segmentation": "https://github.com/halbielee/EPS",
-    "Psynet: Self-supervised approach to object localization using point symmetric transformation": "https://github.com/FriedRonaldo/PsyNet",
+    "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds": "https://github.com/gaviotas/AMN",
+    "Railroad Is Not a Train: Saliency As Pseudo-Pixel Supervision for Weakly Supervised Semantic Segmentation": "https://github.com/halbielee/EPS",
+    "PsyNet: Self-Supervised Approach to Object Localization Using Point Symmetric Transformation": "https://github.com/FriedRonaldo/PsyNet",
 }
 EXCLUDED_TITLES = {
     "Weakly supervised semantic segmentation device and method based on pseudo-masks",
