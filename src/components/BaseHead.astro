@@ -1,0 +1,59 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import '../styles/global.css';
+import { SITE_TITLE } from '../config';
+
+export interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+const { title, description, image = '/assets/social/preview.png' } = Astro.props;
+const shareTitle = title === SITE_TITLE ? `${SITE_TITLE} — Learning from Imperfect Data` : `${title} | ${SITE_TITLE}`;
+const shareImage = new URL(image, Astro.site);
+const defaultImage = image === '/assets/social/preview.png';
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Apply the preference before the first paint to avoid a light flash. -->
+<script is:inline>
+  (() => {
+    let preference = null;
+    try { preference = localStorage.getItem('profile-theme'); } catch {}
+    const dark = preference === 'dark' || (preference !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = dark ? 'profile-dark' : 'lofi';
+  })();
+</script>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+<meta property="og:title" content={shareTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={shareImage} />
+<meta property="og:image:alt" content={defaultImage ? `${SITE_TITLE} — Learning from Imperfect Data` : title} />
+{defaultImage && <>
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+</>}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={shareTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={shareImage} />
+<meta property="twitter:image:alt" content={defaultImage ? `${SITE_TITLE} — Learning from Imperfect Data` : title} />

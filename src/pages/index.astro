@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ResearchCard from '../components/ResearchCard.astro';
+import LearningMotif from '../components/LearningMotif.astro';
+import { profile, papers } from '../lib/data';
+const featuredPapers = profile.featured_publications.map((title: string) => {
+  const paper = papers.find(paper => paper.title === title);
+  if (!paper) throw new Error(`Featured publication not found: ${title}`);
+  return paper;
+});
+const linked = (text: string) => text.replace(/<a /g, '<a class="link" ');
+---
+<BaseLayout sideBarActiveItemID="home">
+  <div class="mt-5">
+    <div class="about-heading">
+      <h1 class="text-2xl py-3 font-bold" style="font-family: 'DM', sans-serif;">{profile.headline}</h1>
+      <LearningMotif />
+    </div>
+    <div class="py-2">
+      <span class="text-lg about-paragraph" set:html={linked(profile.introduction)} />
+      <br /><br />
+      <span class="text-lg about-paragraph" set:html={linked(profile.research_background)} />
+      <br /><br />
+      <span class="text-lg about-paragraph" set:html={linked(profile.background)} />
+    </div>
+  </div>
+  <div class="flex flex-row flex-wrap items-center gap-x-5 gap-y-1 mb-5 mt-10">
+    <h2 class="text-2xl font-bold" style="font-family: 'DM', sans-serif;">Featured Projects</h2>
+    <a href="/publications/" class="all-publications">
+      <span>View all publications</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg>
+    </a>
+  </div>
+  {featuredPapers.map(paper => <ResearchCard paper={paper} compact keywords={profile.featured_keywords[paper.title]} />)}
+</BaseLayout>
+
+<style>
+  .about-heading { display: flex; align-items: center; gap: .75rem; }
+  .about-heading h1 { min-width: 0; }
+  /* Original introduction uses inline text, not block paragraphs. */
+  .about-paragraph { display: inline; }
+  .all-publications { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; color: var(--accent-color); font-size: .875rem; font-weight: 500; }
+  .all-publications span { text-decoration: underline; text-decoration-color: var(--accent-underline-color); text-underline-offset: 5px; }
+  .all-publications svg { flex-shrink: 0; }
+  .all-publications:hover span, .all-publications:focus-visible span { text-decoration-color: currentColor; }
+</style>

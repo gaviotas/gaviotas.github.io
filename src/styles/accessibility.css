@@ -1,0 +1,9 @@
+/* Access and overflow fixes only. Meng Chen's global.css owns the visual design. */
+.skip-link { position: fixed; z-index: 100; top: 12px; left: 12px; padding: 12px; background: var(--surface-color); transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+a:focus-visible, [role='button']:focus-visible, main:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
+::selection { background: var(--selection-color); color: var(--heading-color); }
+main { min-width: 0; overflow-wrap: anywhere; }
+.social-icons a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; margin-inline: 4px; }
+.drawer-side > aside { max-width: calc(100vw - 32px); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

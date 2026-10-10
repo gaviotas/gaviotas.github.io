@@ -1,0 +1,123 @@
+---
+const { title, img, authors, authorsHtml, imgAlt, imgWidth, imgHeight, caption, desc, keywords = [], featuredPreview = false, previewUrl, date, url, badge, tags, award, target = "_blank", venue, venue_short, click = false } = Astro.props;
+
+import './HorizontalCard.scss'
+---
+<!-- class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]" -->
+
+{click && url ? (
+<a href={url} target={target} rel="noopener" class="block no-underline text-inherit">
+  <div
+    class="transition ease-in-out horizontal-card horizontal-card--clickable"
+    style="background-color: var(--bg-color);"
+  >
+    <div class="hero-content flex-col md:flex-row !p-0 w-full max-w-full">
+        {
+            img && (
+            <div class="flex flex-col items-center w-full md:w-auto md:mr-10 shrink-0">
+              <img
+                src={img}
+                loading="lazy" decoding="async"
+                width={imgWidth || 750} height={imgHeight || 422}
+
+                alt={imgAlt || title}
+                class="w-full max-w-full md:max-w-[13rem]"
+                style="border: 1px solid var(--border-color); aspect-ratio: 16 / 9; object-fit: contain; background: white;"
+              />
+              {caption && <p class="text-xs opacity-70 pt-1">{caption}</p>}
+            </div>
+            )
+        }
+        <div class="grow w-full min-w-0">
+          <h3 class="font-bold break-words">
+            {title}
+            {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
+          </h3>
+          {date && <time class="block py-1 text-sm opacity-70">{date}</time>}
+          {desc && <p class="py-1 text-base break-words">{desc}</p>}
+        </div>
+    </div>
+  </div>
+</a>
+) : (
+<div
+  class="transition ease-in-out horizontal-card"
+  style="background-color: var(--bg-color);"
+>
+  <div class="hero-content flex-col md:flex-row !p-0 w-full max-w-full">
+      {
+          img && (
+          <div class="flex flex-col items-center w-full md:w-auto md:mr-10 shrink-0">
+            {featuredPreview && previewUrl ? (
+              <a class="featured-preview" href={previewUrl} target="_blank" rel="noopener noreferrer" aria-label={`Read ${title} (opens in a new tab)`} title="Read paper (opens in a new tab)">
+                <img src={img} loading="lazy" decoding="async" width={imgWidth || 750} height={imgHeight || 422} alt={imgAlt || title} class="featured-preview-image" />
+              </a>
+            ) : (
+            <img
+              src={img}
+              loading="lazy" decoding="async"
+              width={imgWidth || 750} height={imgHeight || 422}
+
+              alt={imgAlt || title}
+              class="w-full max-w-full md:max-w-[13rem]"
+              style="border: 1px solid var(--border-color); aspect-ratio: 16 / 9; object-fit: contain; background: white;"
+            />
+            )}
+            {caption && <p class="text-xs opacity-70 pt-1">{caption}</p>}
+          </div>
+          )
+      }
+      <div class="grow w-full min-w-0">
+        <h3 class="font-bold break-words">
+          {title}
+          {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
+        </h3>
+        {keywords.length > 0 && <ul class="research-keywords" aria-label="Research topics">
+          {keywords.map((keyword: string) => <li class="research-keyword">{keyword}</li>)}
+        </ul>}
+        <div class="py-1 text-base break-words">
+          {authorsHtml && <Fragment set:html={authorsHtml} />}
+          {authors && authors.map((author, index) => (
+              <>{author.includes("Minhyun Lee") ? <b class="underline">{author}</b> : author}</>
+              <>{index < authors.length - 1 ? ", " : ""}</>
+            ))}
+      </div>
+
+        <div class="py-1 text-sm italic break-words"
+          >{venue}
+        </div>
+
+          <div class="card-actions flex flex-row flex-wrap justify-between items-center gap-x-4 gap-y-1">
+            <div class="flex flex-row flex-wrap items-center min-w-0">
+              {venue_short && (
+                <span class="break-words">
+                  <span class="font-bold">{venue_short.split("|")[0].trim()}</span>
+                  {venue_short.includes("|") && (
+                    <span class="font-normal"> | {venue_short.split("|").slice(1).join("|").trim()}</span>
+                  )}
+                </span>
+              )}
+              {award && <span class="font-bold text-orange-500 ml-2 break-words">{award}</span>}
+            </div>
+            <div class="flex flex-row flex-wrap items-center gap-2">
+              {tags && tags.map((tag) => (
+                <a href={`${tag[1]}`} target={target} rel="noopener" class="horizontal-card-tag">
+                  {tag[0]}
+                </a>
+              ))}
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+)}
+
+<style>
+  .featured-preview { position: relative; display: block; width: 13rem; max-width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #fff; border: 1px solid var(--border-color); border-radius: 6px; transition: border-color .2s ease-out; }
+  :global([data-theme='profile-dark']) .featured-preview { border-color: #89909c; }
+  .featured-preview-image { position: absolute; inset: .25rem; display: block; width: calc(100% - .5rem); height: calc(100% - .5rem); object-fit: contain; }
+  .featured-preview:hover, .featured-preview:focus-visible { border-color: var(--accent-color); }
+  .featured-preview:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
+  .research-keywords { display: flex; flex-wrap: wrap; gap: .375rem; padding-block: .5rem .25rem; }
+  .research-keyword { color: var(--accent-color); background: var(--surface-color); font-size: .8rem; font-weight: 500; line-height: 1.5; padding: .125rem .5rem; border-radius: 4px; max-width: 100%; overflow-wrap: anywhere; }
+</style>

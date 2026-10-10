@@ -1,0 +1,54 @@
+---
+import { info } from "../lib/data";
+import ThemeToggle from './ThemeToggle.astro';
+---
+<div
+  class="site-header sticky top-0 z-30 flex h-16 w-full justify-center bg-base-100 text-base-content shadow-sm lg:relative lg:h-12 lg:shadow-none"
+>
+  <div class="navbar lg:p-0 lg:min-h-0">
+    <div class="navbar-start lg:hidden">
+      <label for="my-drawer" class="btn btn-square btn-ghost" tabindex="0" role="button" aria-label="Open navigation" aria-controls="profile-navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"
+          ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </label>
+    </div>
+    <div class="navbar-center lg:hidden">
+      <a class="btn btn-ghost normal-case text-xl" href="/">{info.name}</a>
+    </div>
+    <div class="navbar-end lg:absolute lg:right-6 lg:top-3"><ThemeToggle /></div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 1024px) { .site-header { background: transparent; } }
+  @media (max-width: 380px) { .navbar-center a { font-size: 1.1rem; padding-inline: .25rem; } }
+</style>
+
+<script>
+  const menu = document.querySelector<HTMLLabelElement>('label[for="my-drawer"].btn');
+  const input = document.getElementById('my-drawer') as HTMLInputElement | null;
+  const sidebar = document.getElementById('profile-navigation');
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  function sync() {
+    const open = input?.checked || desktop.matches;
+    if (sidebar) sidebar.inert = !open;
+    menu?.setAttribute('aria-expanded', String(input?.checked || false));
+  }
+  menu?.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      if (input) input.checked = !input.checked;
+      sync();
+      if (input?.checked) sidebar?.querySelector<HTMLAnchorElement>('a')?.focus();
+    }
+  });
+  input?.addEventListener('change', sync);
+  desktop.addEventListener('change', sync);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && input?.checked) {
+      input.checked = false; sync(); menu?.focus();
+    }
+  });
+  sync();
+</script>

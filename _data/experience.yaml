@@ -1,6 +1,7 @@
 experiences:
   - place: "Samsung Electronics AX/PI Center"
-    logo: "/assets/organizations/samsung.svg"
+    former_name: "AI Center"
+    logo: "/assets/organizations/samsung-blue.svg"
     logo_width: 130
     logo_height: 29
     start: "2024-12"
@@ -10,7 +11,7 @@ experiences:
     category: "work"
 
   - place: "Samsung Electronics SAIT"
-    logo: "/assets/organizations/samsung.svg"
+    logo: "/assets/organizations/samsung-blue.svg"
     logo_width: 130
     logo_height: 29
     start: "2024-10"
@@ -20,7 +21,7 @@ experiences:
     category: "work"
 
   - place: "NAVER AI Lab"
-    logo: "/assets/organizations/naver-black.png"
+    logo: "/assets/organizations/naver-green.png"
     logo_width: 716
     logo_height: 138
     start: "2023-07"
@@ -30,17 +31,17 @@ experiences:
     category: "work"
 
   - place: "Yonsei University"
-    logo: "/assets/organizations/yonsei-black.png"
+    logo: "/assets/organizations/yonsei-blue.png"
     logo_width: 173
     logo_height: 173
     start: "2019-03"
     end: "2024-08"
     title: "M.S. and Ph.D. in Integrated Technology"
-    subtitle: "Advised by Prof. <a href=\"https://kaist-cvml.github.io/index.html\" target=\"_blank\" rel=\"noopener\">Hyunjung Shim</a>."
+    subtitle: "Advised by Prof. <a href=\"https://scholar.google.com/citations?user=KB5XZGIAAAAJ&hl=en\" target=\"_blank\" rel=\"noopener\">Hyunjung Shim</a>."
     category: "school"
 
   - place: "Yonsei University"
-    logo: "/assets/organizations/yonsei-black.png"
+    logo: "/assets/organizations/yonsei-blue.png"
     logo_width: 173
     logo_height: 173
     start: "2012-03"

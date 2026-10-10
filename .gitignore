@@ -1,8 +1,24 @@
-# IDEs
+# IDEs and OS files
 .idea/
 .DS_Store
 
-# Generated site / local toolchains
+# Astro
+node_modules/
+dist/
+.astro/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Legacy Jekyll output / local toolchains
 _site/
 .tools/
 .jekyll-cache/

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f9f9f9" />
+  <g font-family="Avenir, Avenir Next, Helvetica, Arial, sans-serif">
+    <text x="88" y="166" font-size="76" font-weight="600" fill="#444">Minhyun Lee</text>
+    <text x="88" y="266" font-size="50" font-weight="400" fill="#3b60d9">Learning from Imperfect Data</text>
+    <text x="88" y="329" font-size="24" fill="#444">Visual Learning · Limited Supervision · Compact Representations</text>
+    <path d="M88 410H1112" stroke="#dedede" />
+    <text x="88" y="482" font-size="26" fill="#444">AI Researcher · Staff Engineer</text>
+    <text x="88" y="524" font-size="24" fill="#666">Samsung Electronics AX/PI Center</text>
+    <text x="88" y="581" font-size="21" fill="#3b60d9">gaviotas.github.io</text>
+  </g>
+</svg>

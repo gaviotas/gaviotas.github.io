@@ -1,72 +1,45 @@
 # Minhyun Lee Website
 
-Personal academic website rebuilt on top of the original `msaveski/www_personal` Jekyll template.
+Personal academic website built with [Astro](https://astro.build/) and deployed to GitHub Pages.
 
-## Stack
+The site was migrated from Jekyll to the actual template from [Meng Chen's academic website](https://meng-chen.com/) and the [Astrofy](https://github.com/manuelernestog/astrofy) template. The source layout, Tailwind/DaisyUI theme, typography, and research cards are retained; personal information comes from Minhyun Lee’s YAML data.
 
-- Jekyll
-- Skeleton CSS + template custom styles
-- Data-driven content in `_data/`
-- Google Scholar import helper in `scripts/import_scholar.py`
-- Local Ruby/Jekyll bootstrap in `scripts/setup-jekyll-local.sh`
+## Local development
 
-## Project Structure
-
-```text
-.
-├── .github/workflows/publish.yaml
-├── _config.yml
-├── _data/
-│   ├── experience.yaml
-│   ├── main_info.yaml
-│   └── publications.yaml
-├── _includes/
-├── _layouts/
-├── assets/
-│   ├── cv/cv_web.pdf
-│   └── profile/portrait-20260420.jpeg
-├── index.html
-├── libs/
-├── scripts/
-│   └── import_scholar.py
-└── Gemfile
-```
-
-## Local Development
-
-Bootstrap local Ruby and install dependencies:
+Requires Node.js 22.12 or later.
 
 ```bash
-make setup
-make install
+npm ci
+npm run dev
 ```
 
-Preview locally:
+Astro serves the local site at `http://127.0.0.1:4000` (configured in `astro.config.mjs`).
+
+## Production build
 
 ```bash
-make preview
+npm run build
+npm run preview
 ```
 
-Build static output:
-
-```bash
-make render
-```
-
-The generated site is written to `_site/`.
-
-The local runtime is installed under `.tools/` and does not require a system-wide Ruby installation.
-
-## Publications Update
-
-Refresh publications from Google Scholar:
-
-```bash
-python3 scripts/import_scholar.py
-```
-
-This updates `_data/publications.yaml`.
+The generated static site is written to `dist/`.
 
 ## Deployment
 
-GitHub Pages deployment is handled in `.github/workflows/publish.yaml`.
+Pushes to `main` deploy through [`.github/workflows/astro.yml`](.github/workflows/astro.yml). The workflow can also be started manually from GitHub Actions.
+
+## Content
+
+Edit `_data/*.yaml` for profile, publications, awards, and experience. Publication previews and summaries live in `_data/research_media.yaml`; static images are in `public/assets/`. Keep canonical publication titles aligned with research media keys.
+
+The existing `scripts/import_scholar.py` still writes `_data/publications.yaml`. Run it deliberately: it uses network access and may replace manual publication metadata.
+
+## Attribution
+
+See `licenses/README.md` and `licenses/Astrofy-MIT.txt` for reference code attribution. Image sources are documented alongside the assets.
+
+## Template provenance
+
+The reference repository’s original layout, sidebar, header, footer, research card, and styles are used directly. Astro 2 image components are adapted to native image tags for Astro 7. `DESIGN.md` records the source revision and compatibility changes. The small `accessibility.css` file adds access/overflow fixes without replacing template styling.
+
+Verified full-name author lines live in `_data/publication_authors.json`. The Scholar importer preserves these lines, including author order, personal-name emphasis, and contribution markers. Update the override together with the corresponding publication if its author list changes.

@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DateStamp from "../components/DateStamp.astro";
+import { experiences } from "../lib/data";
+---
+
+<BaseLayout title="Experience" sideBarActiveItemID="experience">
+  <div class="mt-5 mb-10">
+    <h1 class="text-2xl py-3 font-bold" style="font-family: 'DM', sans-serif;">
+      Experience
+    </h1>
+    <p class="text-lg">
+      Research and engineering experience across visual learning, efficient
+      training, and industrial AI systems.
+    </p>
+  </div>
+
+  <div class="time-line-container grid gap-6 mb-10">
+    {experiences.map((experience) => (
+      <div class="flex">
+        <div class="education__time shrink-0" aria-hidden="true">
+          <span class="w-3 h-3 bg-primary block rounded-full mt-1.5"></span>
+          <span class="education__line bg-base-300 block h-full w-px translate-x-[5px]"></span>
+        </div>
+
+        <article class="grow min-w-0 px-5 pb-2">
+          <div class="flex items-start justify-between gap-5">
+            <div class="min-w-0">
+              <h2 class="text-lg font-bold mb-1">
+                {experience.title}
+              </h2>
+              <p class="experience-organization">
+                {experience.place}
+                {experience.former_name && <span class="former-name"> · formerly {experience.former_name}</span>}
+              </p>
+              <p class="experience-date text-sm tabular-nums mt-1">
+                <DateStamp value={experience.start} />
+                <span aria-hidden="true"> – </span>
+                {experience.end === "present" ? (
+                  <span>Present</span>
+                ) : (
+                  <DateStamp value={experience.end} />
+                )}
+              </p>
+            </div>
+
+            {experience.logo && (
+              <img
+                class:list={['experience-logo', { 'experience-logo--seal': experience.category === 'school' }]}
+                src={experience.logo}
+                alt=""
+                width={experience.logo_width}
+                height={experience.logo_height}
+                loading="lazy"
+              />
+            )}
+          </div>
+
+          {experience.subtitle && (
+            <p class="my-3 max-w-2xl leading-7" set:html={experience.subtitle.replace(/<a /g, '<a class="link" ')} />
+          )}
+        </article>
+      </div>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .experience-logo { display: block; width: 6.5rem; height: auto; flex-shrink: 0; object-fit: contain; object-position: right; opacity: 1; }
+  .experience-logo--seal { width: 2.5rem; height: 2.5rem; }
+  @media (max-width: 480px) {
+    .experience-logo { width: 5.5rem; }
+    .experience-logo--seal { width: 2.25rem; height: 2.25rem; }
+  }
+  .experience-organization { overflow-wrap: anywhere; }
+  .former-name { display: inline; font-size: .875rem; color: var(--muted-color); }
+  .experience-date { color: var(--muted-color); }
+</style>

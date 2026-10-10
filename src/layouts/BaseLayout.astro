@@ -1,0 +1,37 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SideBar from "../components/SideBar.astro";
+
+import '../styles/tailwind.css';
+import '../styles/accessibility.css';
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSidebar = true, sideBarActiveItemID } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="lofi">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="drawer lg:drawer-open" style="background: var(--bg-color);">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content" style="background: var(--bg-color);">
+        <Header title={SITE_TITLE} />
+        <div class="md:flex md:justify-center">
+          <main id="main-content" tabindex="-1" class="p-6 pt-10 lg:max-w-[865px] max-w-[100vw]">
+            <slot />
+          </main>
+        </div>
+        <Footer />
+      </div>
+      {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
+    </div>
+  </body>
+</html>

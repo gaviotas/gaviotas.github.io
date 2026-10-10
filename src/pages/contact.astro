@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { info } from "../lib/data";
+
+const profiles = [
+  { label: "Google Scholar", icon: "google-scholar", description: "Publications and citations", href: info.google_scholar },
+  { label: "GitHub", icon: "github", description: "Research code and implementations", href: info.github },
+  { label: "LinkedIn", icon: "linkedin", description: "Professional background", href: info.linkedin },
+].filter(profile => profile.href);
+---
+
+<BaseLayout title="Contact" sideBarActiveItemID="contact">
+  <div class="mt-5">
+    <h1 class="text-2xl py-3 font-bold" style="font-family: 'DM', sans-serif;">Contact</h1>
+    <p class="text-lg max-w-2xl">
+      Have <span class="number-list">questions</span>, ideas for
+      <span class="number-list">discussion</span>, or just feel like a
+      <span class="coffee-emphasis"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8h12v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Zm12 1h2a3 3 0 1 1 0 6h-2M3 22h15" /><path class="coffee-steam" d="M7 5C5 4 9 3 7 1" /><path class="coffee-steam coffee-steam-second" d="M12 5C10 4 14 3 12 1" /></svg><b>coffee chat</b></span>?
+    </p>
+    <p class="text-lg max-w-2xl mt-3">
+      Feel free to reach out. I’m always happy to exchange ideas, hear different
+      perspectives, and talk about research or anything you’re curious about.
+    </p>
+  </div>
+
+  <section class="email-section mt-8 py-6" aria-labelledby="email-heading">
+    <h2 id="email-heading" class="font-bold mb-1">Email</h2>
+    <div class="email-line">
+      <svg class="mail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg>
+      <a id="contact-email" class="email-address" href={`mailto:${info.email}`}>{info.email}</a>
+      <button id="copy-email" class="copy-button" type="button" data-email={info.email} aria-label="Copy email address" title="Copy email address" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V4H4v12h4" /></svg>
+      </button>
+    </div>
+    <p id="copy-status" class="text-sm" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="mt-8 mb-10" aria-labelledby="profiles-heading">
+    <h2 id="profiles-heading" class="text-2xl font-bold mb-3">Find me online</h2>
+    <ul>
+      {profiles.map(profile => (
+        <li>
+          <a class="profile-row" href={profile.href} target="_blank" rel="noopener">
+            <div class="profile-identity">
+              <img class="profile-logo" src={`/assets/icons/${profile.icon}.svg`} width="22" height="22" alt="" aria-hidden="true" />
+              <div>
+              <h3 class="font-bold">{profile.label}</h3>
+              <p class="text-sm mt-1">{profile.description}</p>
+              </div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .coffee-emphasis { display: inline-flex; align-items: baseline; gap: .35rem; color: var(--accent-color); white-space: nowrap; }
+  .coffee-emphasis svg { align-self: center; }
+  .coffee-steam { opacity: .5; }
+  .mail-icon { flex-shrink: 0; color: var(--accent-color); margin-right: .5rem; }
+  .profile-identity { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+  .profile-logo { flex-shrink: 0; opacity: .8; }
+  .email-section { border-block: 1px solid var(--border-color); }
+  .email-line { display: flex; align-items: center; gap: .25rem; }
+  .email-address { font-size: 1rem; color: var(--text-color); min-width: 0; overflow-wrap: anywhere; text-decoration: underline; text-decoration-color: var(--underline-color); text-underline-offset: 4px; }
+  .email-address:hover { color: var(--accent-color); text-decoration-color: currentColor; }
+  .copy-button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; color: var(--muted-color); border-radius: 4px; }
+  .copy-button[hidden] { display: none; }
+  .copy-button:hover { color: var(--accent-color); background: var(--surface-color); }
+  .copy-button:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
+  #copy-status { color: var(--accent-color); margin-top: .25rem; }
+  #copy-status:empty { display: none; }
+  .profile-row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1rem .5rem; border-bottom: 1px solid var(--border-color); }
+  .profile-row h3 { color: var(--text-color); }
+  .profile-row svg { color: var(--accent-color); }
+  .profile-row svg { flex-shrink: 0; }
+  .profile-row:hover { background: var(--surface-color); }
+</style>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('#copy-email');
+  const status = document.querySelector<HTMLElement>('#copy-status');
+  if (button && status) {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.email || '');
+        status.textContent = 'Email address copied.';
+      } catch {
+        const email = document.getElementById('contact-email');
+        if (email) {
+          const range = document.createRange();
+          range.selectNodeContents(email);
+          const selection = window.getSelection();
+          selection?.removeAllRanges();
+          selection?.addRange(range);
+        }
+        status.textContent = 'Address selected. Please copy it using your browser.';
+      }
+    });
+  }
+</script>

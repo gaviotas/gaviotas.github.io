@@ -1,0 +1,12 @@
+---
+const { sideBarActiveItemID } = Astro.props;
+const entries = [['home', '/', 'About'], ['publications', '/publications/', 'Publications'], ['experience', '/experience/', 'Experience'], ['awards', '/awards/', 'Awards'], ['contact', '/contact/', 'Contact']];
+---
+<ul class="menu grow shrink menu-md overflow-y-auto">
+  {entries.map(([id, href, label]) => <li><a class:list={['py-3 text-base', {'bg-base-300': sideBarActiveItemID === id}]} id={id} href={href} aria-current={sideBarActiveItemID === id ? 'page' : undefined}>{label}</a></li>)}
+</ul>
+
+<style>
+  .menu a { color: var(--text-color); }
+  .menu a[aria-current='page'] { color: var(--heading-color); font-weight: 525; }
+</style>

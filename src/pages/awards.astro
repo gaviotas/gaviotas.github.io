@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DateStamp from "../components/DateStamp.astro";
+import { awards } from "../lib/data";
+const highlightedTerms = /\b(Grand Prize|Proud Peer|Outstanding Reviewer)\b/g;
+---
+
+<BaseLayout title="Awards" sideBarActiveItemID="awards">
+  <section class="mt-5 mb-12">
+    <h1 class="text-2xl py-3 font-bold" style="font-family: 'DM', sans-serif;">Awards</h1>
+    <p class="text-lg max-w-2xl">
+      Recognition from Samsung Electronics and the computer vision research community.
+    </p>
+
+    <ul class="award-list mt-8">
+      {awards.map(award => (
+        <li class="award-row">
+          <svg class="award-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            {award.category === 'Academic' ? <>
+              <circle cx="12" cy="8" r="5" />
+              <path d="m8 12-2 9 6-3 6 3-2-9" />
+            </> : <>
+              <path d="M7 3h10v6a5 5 0 0 1-10 0V3ZM7 5H3v2a4 4 0 0 0 4 4m10-6h4v2a4 4 0 0 1-4 4M12 14v5m-4 2h8m-7-2h6" />
+            </>}
+          </svg>
+          <div class="award-content">
+            <h2 class="text-lg font-bold">
+              {award.text.split(highlightedTerms).map((part, index) => index % 2 ? <span class="award-emphasis">{part}</span> : part)}
+            </h2>
+            <p class="award-meta text-sm mt-1">{award.meta}</p>
+          </div>
+          <div class="award-date text-sm tabular-nums">
+            <DateStamp value={award.date.replace('.', '-')} />
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .award-list { border-top: 1px solid var(--border-color); }
+  .award-row { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; column-gap: 1.25rem; row-gap: .5rem; align-items: start; padding: 1.5rem .5rem; border-bottom: 1px solid var(--border-color); }
+  .award-icon { color: var(--accent-color); margin-top: .125rem; }
+  .award-emphasis { color: var(--accent-color); display: inline; }
+  .award-meta, .award-date { color: var(--muted-color); }
+  .award-date { padding-top: .25rem; white-space: nowrap; }
+  @media (max-width: 639px) {
+    .award-row { grid-template-columns: 24px minmax(0, 1fr); column-gap: 1rem; }
+    .award-date { grid-column: 2; padding-top: 0; }
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import { info } from "../lib/data";
+const today = new Date();
+const startYear = Number(info.site_created.slice(0, 4));
+const years = startYear === today.getFullYear() ? String(startYear) : `${startYear}–${today.getFullYear()}`;
+---
+
+<footer class="footer footer-center block mb-5 pt-10">
+  <div class="pb-2">
+    &copy; {years} {info.name}
+  </div>
+  <div class="inline opacity-75">
+    <!-- Thanks for using this template. You can keep this line to support my work :) -->
+    <a href="https://astrofy-template.netlify.app/" target="_blank" class="font-bold" rel="noopener"> Developed based on Astrofy</a>
+  <span> · <a href="https://meng-chen.com/" target="_blank" rel="noopener">Meng Chen</a></span>
+  </div>
+</footer>
+<style>
+
+</style>

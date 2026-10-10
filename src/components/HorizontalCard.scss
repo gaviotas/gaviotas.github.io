@@ -1,0 +1,27 @@
+.horizontal-card{
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding: 0.75rem 0.5rem;
+    margin: 0.25rem 0;
+
+    &--clickable:hover {
+        background-color: var(--surface-color) !important;
+    }
+
+    .horizontal-card-tag{
+        background-color: var(--bg-color);
+        padding: 2px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+    }
+    .horizontal-card-tag:hover{
+        background-color: var(--border-color);
+    }
+    .horizontal-card-tag:active{
+        background-color: var(--tag-background);
+        color: var(--tag-ink);
+    }
+
+}

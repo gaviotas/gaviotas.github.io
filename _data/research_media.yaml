@@ -1,0 +1,85 @@
+# Presentation metadata is separate from Scholar imports.
+
+"Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding":
+  image: "/assets/research/biased2grounded.jpg"
+  width: 1000
+  height: 281
+  alt: "Vision and language encoder probing, layer selection, and spatial grounding."
+  summary: "Probing visual position and language biases for zero-shot spatial grounding."
+
+"Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation":
+  image: "/assets/research/part-catseg.jpg"
+  width: 1000
+  height: 410
+  alt: "Source images, object and part correspondence maps, and part segmentation predictions."
+  summary: "Connecting image regions with text to segment fine-grained object parts."
+
+"Understanding Multi-Granularity for Open-Vocabulary Part Segmentation":
+  image: "/assets/research/part-clipseg.jpg"
+  width: 1000
+  height: 478
+  alt: "A dog segmented into object-level and part-level regions, with part attention maps."
+  summary: "Combining object context and part-level descriptions for open-vocabulary segmentation."
+
+"Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds":
+  image: "/assets/research/amn.jpg"
+  width: 1000
+  height: 531
+  alt: "Ground-truth masks and class activation maps before and after activation manipulation."
+  summary: "Studying activation maps and threshold sensitivity in weakly supervised segmentation."
+
+"Railroad Is Not a Train: Saliency As Pseudo-Pixel Supervision for Weakly Supervised Semantic Segmentation":
+  image: "/assets/research/eps.jpg"
+  width: 1000
+  height: 264
+  alt: "Image labels and a saliency map provide complementary signals for a segmentation mask."
+  summary: "Combining image labels and saliency cues to supervise segmentation without dense labels."
+
+"PsyNet: Self-Supervised Approach to Object Localization Using Point Symmetric Transformation":
+  image: "/assets/research/psynet.jpg"
+  width: 1000
+  height: 666
+  alt: "Bird images with predicted localization boxes and activation maps."
+  summary: "Localizing objects through self-supervised learning with point symmetric transformations."
+
+"Keep It CALM: Analyzing the Limits of Global Unsafety in Text-to-Image Generation":
+  image: "/assets/research/calm.png"
+  width: 1416
+  height: 752
+  alt: "Qualitative comparison of text-to-image safety methods, with sensitive regions masked and CALM outputs in the rightmost column."
+  summary: "Analyzing safety limitations in text-to-image generation."
+
+"MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation":
+  image: "/assets/research/maskris.jpg"
+  width: 1001
+  height: 780
+  alt: "Comparison of augmentation effects on semantic segmentation and language-guided segmentation."
+  summary: "Data augmentation for segmenting image regions described in natural language."
+
+"SeiT++: Masked Token Modeling Improves Storage-efficient Training":
+  image: "/assets/research/seit.jpg"
+  width: 1001
+  height: 435
+  alt: "Accuracy and training-data storage comparison from the SeiT++ paper."
+  summary: "Learning visual representations with masked token modeling and compact training data."
+
+"Saliency as Pseudo-Pixel Supervision for Weakly and Semi-Supervised Semantic Segmentation":
+  image: "/assets/research/epspp.png"
+  width: 1201
+  height: 492
+  alt: "EPS++ framework combining localization maps, saliency supervision, refinement, and image-level classification."
+  summary: "Using saliency cues as supervision for weakly and semi-supervised segmentation."
+
+"HybridMatch: Semi-Supervised Facial Landmark Detection via Hybrid Heatmap Representations":
+  image: "/assets/research/hybridmatch.jpg"
+  width: 1001
+  height: 499
+  alt: "HybridMatch framework combining 2-D and 1-D heatmap predictions for facial landmarks."
+  summary: "Learning facial landmark detection with hybrid heatmap representations."
+
+"Rethinking Weakly Supervised Semantic Segmentation Utilizing Both Point and Image Labels":
+  image: "/assets/research/ncls.png"
+  width: 1200
+  height: 541
+  alt: "NCLS architecture combining image-level pseudo masks and point labels with consistency-based noise filtering; original preprint watermark retained."
+  summary: "Combining point annotations and image labels for weakly supervised segmentation."

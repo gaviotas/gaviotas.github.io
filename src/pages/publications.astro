@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ResearchCard from '../components/ResearchCard.astro';
+import HorizontalCard from '../components/HorizontalCard.astro';
+import { papers, patents } from '../lib/data';
+const groups = [
+  { id: 'conference-proceedings', label: 'Conference Proceedings', items: papers.filter(paper => !/TMLR|PAMI|IEEE Access|SSRN/.test(paper.venue)) },
+  { id: 'journal-articles', label: 'Journal Articles', items: papers.filter(paper => /TMLR|PAMI|IEEE Access/.test(paper.venue)) },
+  { id: 'preprints', label: 'Preprints', items: papers.filter(paper => /SSRN/.test(paper.venue)) },
+];
+---
+<BaseLayout title="Publications" sideBarActiveItemID="publications">
+  <h1 class="text-2xl font-bold mb-2" style="font-family: 'DM', sans-serif;">Publications</h1>
+  <p class="mb-2">* denotes equal contribution · † denotes corresponding author</p>
+  {groups.filter(group => group.items.length).map((group, index) => <section>
+    <div class={`flex flex-row items-center ${index ? 'mt-2 mb-2' : ''}`}>
+      <h2 class="text-2xl font-bold leading-none">{group.label}</h2>
+      <button type="button" class="section-toggle-btn ml-3" aria-expanded="true" aria-controls={group.id} data-section-label={group.label} aria-label={`Collapse ${group.label}`}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg></button>
+    </div>
+    <div id={group.id} class="section-content">
+      {group.items.map(paper => <ResearchCard paper={paper} />)}
+    </div>
+  </section>)}
+  <section class="mb-10">
+    <div class="flex flex-row items-center mt-2 mb-2">
+      <h2 class="text-2xl font-bold leading-none">Patents</h2>
+      <button type="button" class="section-toggle-btn ml-3" aria-expanded="true" aria-controls="patents" data-section-label="Patents" aria-label="Collapse Patents"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg></button>
+    </div>
+    <div id="patents" class="section-content">
+      {patents.map(patent => (
+        <HorizontalCard
+          title={patent.title}
+          authorsHtml={patent.inventors}
+          venue={patent.details}
+          venue_short={patent.reference}
+          tags={[["Patent", patent.link]]}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-toggle-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; color: var(--accent-color); cursor: pointer; border-radius: 50%; }
+  .section-toggle-btn svg { border: 1px solid var(--border-color); border-radius: 50%; padding: 4px; transition: transform .18s ease-out; }
+  .section-toggle-btn[aria-expanded='false'] svg { transform: rotate(-90deg); }
+  .section-toggle-btn:hover svg { background: var(--surface-color); border-color: var(--accent-color); }
+  .section-toggle-btn:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+</style>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.section-toggle-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const section = document.getElementById(button.getAttribute('aria-controls') || '');
+      if (!section) return;
+      section.hidden = !section.hidden;
+      button.setAttribute('aria-label', `${section.hidden ? 'Expand' : 'Collapse'} ${button.dataset.sectionLabel}`);
+      button.setAttribute('aria-expanded', String(!section.hidden));
+    });
+  });
+</script>

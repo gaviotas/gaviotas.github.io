@@ -1,8 +1,25 @@
-"Neural Information Processing Systems (NeurIPS)": "NeurIPS"
-"European Conference on Computer Vision (ECCV)": "ECCV"
-"Conference on Computer Vision and Pattern Recognition (CVPR)": "CVPR"
-"Transactions on Machine Learning Research (TMLR)": "TMLR"
-"IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI)": "IEEE TPAMI"
-"IEEE Access 11": "IEEE Access"
-"AAAI Conference on Artificial Intelligence": "AAAI"
-"Available at SSRN 5062471": "SSRN preprint"
+# Display names only; original publication metadata remains unchanged.
+"Neural Information Processing Systems (NeurIPS)":
+  full: "Advances in Neural Information Processing Systems"
+  short: "NeurIPS"
+"European Conference on Computer Vision (ECCV)":
+  full: "Proceedings of the {year} European Conference on Computer Vision"
+  short: "ECCV"
+"Conference on Computer Vision and Pattern Recognition (CVPR)":
+  full: "Proceedings of the {year} IEEE/CVF Conference on Computer Vision and Pattern Recognition"
+  short: "CVPR"
+"Transactions on Machine Learning Research (TMLR)":
+  full: "Transactions on Machine Learning Research"
+  short: "TMLR"
+"IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI)":
+  full: "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+  short: "IEEE TPAMI"
+"IEEE Access 11":
+  full: "IEEE Access, Volume 11"
+  short: "IEEE Access"
+"AAAI Conference on Artificial Intelligence":
+  full: "Proceedings of the {year} AAAI Conference on Artificial Intelligence"
+  short: "AAAI"
+"Available at SSRN 5062471":
+  full: "Preprint available on SSRN"
+  short: "SSRN preprint"

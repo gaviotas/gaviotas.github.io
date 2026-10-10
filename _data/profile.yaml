@@ -1,31 +1,29 @@
-headline: "Learning from imperfect data."
+headline: "Learning from Imperfect Data"
 
 introduction: >-
-  I am an AI researcher and Staff Engineer at Samsung Electronics' AX/PI Center.
-  I study how visual models learn from limited, noisy, or indirect supervision,
-  with an interest in making these methods useful beyond carefully annotated
-  research datasets.
+  I work on <b>label-efficient visual learning</b>.
+  My research asks how visual models can learn useful structure when data is
+  costly to annotate, difficult to store, or imperfect in practice.
+  I explore <span class="number-list">limited supervision</span> and
+  <span class="number-list">compact representations</span>, spanning weakly
+  supervised and language-guided segmentation, object localization, and
+  storage-efficient training.
 
 research_background: >-
-  At Yonsei University, I worked with Prof.
-  <a href="https://kaist-cvml.github.io/index.html" target="_blank" rel="noopener">Hyunjung Shim</a>
-  on weakly supervised segmentation and localization, using image labels,
-  point annotations, and saliency cues
-  instead of dense pixel-level supervision. My work also spans language-guided
-  and part-level segmentation, connecting visual regions with descriptions
-  at different levels of detail. During my internship at NAVER AI Lab, I worked with
+  I received my M.S. and Ph.D. in Integrated Technology from <span class="affiliation-emphasis">Yonsei University</span>,
+  advised by Prof.
+  <a href="https://scholar.google.com/citations?user=KB5XZGIAAAAJ&hl=en" target="_blank" rel="noopener">Hyunjung Shim</a>.
+  During my research internship at <span class="affiliation-emphasis">NAVER AI Lab</span>, I worked with
   <a href="https://8uos.github.io/" target="_blank" rel="noopener">Song Park</a>,
   <a href="https://sites.google.com/view/byeongho-heo/home" target="_blank" rel="noopener">Byeongho Heo</a>,
   and <a href="https://sites.google.com/site/dyhan0920/" target="_blank" rel="noopener">Dongyoon Han</a>
-  on storage-efficient visual training, exploring how to reduce the data
-  storage required for learning visual representations.
+  on storage-efficient visual training.
 
 background: >-
-  Today, I work on semiconductor data modeling and layout generation,
-  where structured patterns and noisy data shape the design of learning
-  systems. Across these settings, the common thread is learning useful
-  structure from data that is costly to annotate, difficult to store,
-  or imperfect in practice.
+  I am currently an AI researcher and <b>Staff Engineer</b> at <span class="affiliation-emphasis">Samsung Electronics' AX/PI Center</span>,
+  working on semiconductor data modeling and layout generation.
+  These industrial settings bring the same research question into practice:
+  learning from structured patterns and noisy data with limited supervision.
 
 research_areas:
   - title: "Limited supervision"
@@ -45,3 +43,24 @@ research_areas:
     description: >-
       Semiconductor data modeling and generative methods for structured
       layout patterns.
+
+# Curated first/co-first-author projects; display newest first.
+featured_publications:
+  - "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation"
+  - "SeiT++: Masked Token Modeling Improves Storage-efficient Training"
+  - "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds"
+  - "Railroad Is Not a Train: Saliency As Pseudo-Pixel Supervision for Weakly Supervised Semantic Segmentation"
+
+featured_keywords:
+  "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation":
+    - "Vision–Language"
+    - "Data Augmentation"
+  "SeiT++: Masked Token Modeling Improves Storage-efficient Training":
+    - "Storage-Efficient Learning"
+    - "Masked Token Modeling"
+  "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds":
+    - "Weak Supervision"
+    - "Threshold Robustness"
+  "Railroad Is Not a Train: Saliency As Pseudo-Pixel Supervision for Weakly Supervised Semantic Segmentation":
+    - "Weak Supervision"
+    - "Saliency Guidance"

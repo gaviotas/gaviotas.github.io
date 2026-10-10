@@ -1,0 +1,183 @@
+/* Register your custom font family and tell the browser where to find it. */
+
+/* Light retains the original Meng Chen palette. */
+:root {
+    color-scheme: light;
+    --bg-color: #f9f9f9;
+    --surface-color: #f2f2f2;
+    --border-color: #e6e5e5;
+    --text-color: #444;
+    --heading-color: #222;
+    --muted-color: #666;
+    --accent-color: #3b60d9;
+    --affiliation-color: #256c68;
+    --affiliation-background: #e7f1ee;
+    --accent-ink: #fff;
+    --underline-color: #c7c7c7;
+    --accent-underline-color: #c5d0f4;
+    --selection-color: #dbe3fc;
+    --tag-background: #444;
+    --tag-ink: #fff;
+}
+
+:root[data-theme="profile-dark"] {
+    color-scheme: dark;
+    --bg-color: #191b20;
+    --surface-color: #22252c;
+    --border-color: #363b45;
+    --text-color: #d3d6dc;
+    --heading-color: #f1f2f5;
+    --muted-color: #a8aeb9;
+    --accent-color: #95afff;
+    --affiliation-color: #8acbc3;
+    --affiliation-background: #243b3a;
+    --accent-ink: #191b20;
+    --underline-color: #606977;
+    --accent-underline-color: #596eaa;
+    --selection-color: #364b7c;
+    --tag-background: #d3d6dc;
+    --tag-ink: #191b20;
+}
+
+
+html {
+    font-size: 0.9rem;
+}
+
+html, body {
+    font-family: 'Avenir', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    min-height: 100vh;
+    background: var(--bg-color) !important;
+    background-size: auto !important;
+    animation: none !important;
+  }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Make all bold text semi-bold, but only for Avenir font family */
+/* Exclude elements that explicitly use 'DM' font-family */
+.font-bold:not([style*="font-family: 'DM'"]):not([style*='font-family: "DM"']),
+b:not([style*="font-family: 'DM'"]):not([style*='font-family: "DM"']),
+strong:not([style*="font-family: 'DM'"]):not([style*='font-family: "DM"']) {
+    font-weight: 525 !important;
+}
+
+
+.time-line-container>div:last-child .education__time>.education__line {
+    display: none;
+}
+
+.dm-serif-display-regular {
+    font-family: 'Avenir', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.dm-serif-display-regular-italic {
+    font-family: 'Avenir', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+
+.link {
+    position: relative;
+    color: var(--accent-color);
+    font-weight: 500;
+    /* text-decoration: underline;
+    text-decoration-style: dotted; */
+    text-decoration: none;
+}
+
+.link:hover {
+    background-position: 0 0;
+    color: var(--accent-ink);
+    background-color: var(--accent-color);
+    text-decoration: none;
+    transition: background-color 0.4s ease;
+}
+
+.strong {
+    color: var(--accent-color);
+}
+
+.paper{
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.paper:hover {
+    background-position: 0 0;
+    color: var(--accent-ink);
+    background-color: var(--accent-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.4s ease;
+}
+
+.artwork-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.number-list{
+    /* font-weight: bold; */
+    color: var(--accent-color);
+    background-color: var(--surface-color);
+    font-weight: 500;
+    padding: 0px 6px;
+    border-radius: 4px;
+    /* margin-left: 12px; */
+    /* margin-right: 5px; */
+    text-indent: 0;
+}
+
+.tag{
+    /* font-weight: bold; */
+    font-size: 0.85rem;
+    background-color: var(--tag-background);
+    color: var(--tag-ink);
+    padding: 0px 6px;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+span {
+    display: inline-block
+}
+/* Quiet text hierarchy shared by the profile and content pages. */
+h1, h2, h3 {
+    color: var(--heading-color);
+}
+
+/* Author contribution markers sit above the baseline without changing row height. */
+.equal-note, .corresponding-note {
+    display: inline;
+    position: relative;
+    top: -0.45em;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+/* Preserve original brand marks and research figures rather than inverting them. */
+[data-theme="profile-dark"] .profile-logo { filter: invert(1); }
+[data-theme="profile-dark"] .experience-logo { background: #f9f9f9; box-sizing: content-box; padding: 5px 7px; border-radius: 3px; opacity: 1; }
+
+/* Affiliations have their own emphasis, separate from research topic highlights. */
+.affiliation-emphasis { display: inline; color: var(--affiliation-color); background: var(--affiliation-background); font-weight: 500; padding: 0 6px; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }

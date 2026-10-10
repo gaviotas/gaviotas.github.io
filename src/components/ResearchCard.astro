@@ -1,0 +1,16 @@
+---
+import HorizontalCard from './HorizontalCard.astro';
+import { media, venues } from '../lib/data';
+const { paper, compact = false, keywords = [] } = Astro.props;
+const visual = media[paper.title];
+const parts = paper.venue.split(',');
+const venue = parts[0].trim();
+const year = parts.at(-1).trim();
+const venueDisplay = venues[venue];
+const fullVenue = venueDisplay?.full.replaceAll('{year}', year) || venue;
+const shortVenue = venueDisplay?.short || venue;
+const tags = [];
+if (paper.paper_pdf) tags.push(['Paper', paper.paper_pdf]);
+if (paper.code) tags.push(['Code', paper.code]);
+---
+<HorizontalCard previewUrl={paper.paper_pdf} featuredPreview={compact} keywords={keywords} title={paper.title} img={visual?.image} imgAlt={visual?.alt} imgWidth={visual?.width} imgHeight={visual?.height} caption={visual?.caption} authorsHtml={paper.authors} venue={compact ? undefined : fullVenue} venue_short={`${shortVenue}${year !== '0' && year !== '' ? ` ${year}` : ''}`} tags={tags} />

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import json
 import re
 import sys
 import urllib.parse
@@ -15,6 +16,8 @@ PROFILE_URL = f"{BASE}/citations?user={PROFILE_ID}&hl=en&cstart=0&pagesize=100"
 ROOT = Path(__file__).resolve().parents[1]
 YAML_PATH = ROOT / "_data" / "publications.yaml"
 USER_AGENT = "Mozilla/5.0"
+# Verified full-name author lines preserve order and contribution markers on import.
+AUTHOR_OVERRIDES = json.loads((ROOT / "_data" / "publication_authors.json").read_text(encoding="utf-8"))
 EQUAL_CONTRIBUTION_AUTHORS = {
     "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation": [
         "M Lee",
@@ -72,6 +75,7 @@ TITLE_OVERRIDES = {
     "CoPatch: Zero-Shot Referring Image Segmentation by Leveraging Untapped Spatial Knowledge in CLIP": "Blind to Position, Biased in Language: Probing Mid-Layer Representational Bias in Vision-Language Encoders for Zero-Shot Language-Grounded Spatial Understanding",
 }
 PAPER_URL_OVERRIDES = {
+    "Saliency as Pseudo-Pixel Supervision for Weakly and Semi-Supervised Semantic Segmentation": "https://ieeexplore.ieee.org/abstract/document/10120949",
     "PsyNet: Self-Supervised Approach to Object Localization Using Point Symmetric Transformation": "https://ojs.aaai.org/index.php/AAAI/article/view/6615",
     "SeiT++: Masked Token Modeling Improves Storage-efficient Training": "https://arxiv.org/abs/2312.10105",
 }
@@ -249,6 +253,9 @@ def add_author_note(text: str, name: str, note_class: str, symbol: str) -> str:
 
 
 def emphasize_author(title: str, authors: str) -> str:
+    if title in AUTHOR_OVERRIDES:
+        return AUTHOR_OVERRIDES[title]
+
     patterns = [r"\bM Lee\b", r"\bMinhyun Lee\b", r"\bLEE Minhyun\b"]
     result = authors
     for pattern in patterns:

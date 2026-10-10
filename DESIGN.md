@@ -1,121 +1,113 @@
 # Design
 
-## Source of truth
-- Status: Active
-- Last refreshed: 2026-10-07
-- Primary product surfaces: English personal academic homepage at `/`.
-- Evidence reviewed: `README.md`, `index.html`, `_layouts/default.html`, `_data/`, `libs/custom/my_css.css`, current typography, diagrams, institution assets, and user feedback. A rendered screenshot baseline is not available.
+## Current direction
+- Active: 2026-10-09. User explicitly requested Meng Chen's actual template with their personal information, rather than mixing the previous custom design with a reference.
+- Source: https://github.com/Casardo-Chen/casardo-chen.github.io at `a09f1557c94e567f7ab693cd59f39794b330c3a8`.
+- Original `BaseLayout`, `BaseHead`, `Header`, `SideBar`, `SideBarFooter`, `SideBarMenu`, `Footer`, `HorizontalCard`, `HorizontalCard.scss`, `global.css`, and Tailwind configuration were copied from that repository.
+- Actual template look: `lofi` DaisyUI theme, #f9f9f9 main background, #444 text, #3b60d9 links, Avenir/system sans typography, 19rem sidebar, 865px main width, 13rem research previews, round profile image, mobile checkbox drawer.
+- The previous ivory/green CSS, custom DM Sans font, custom rail, anchor navigation, and custom drawer script were removed. Do not reintroduce that visual layer without a new user direction.
 
-## Brand
-- Personality: Simple & professional; clear, restrained, research focused.
-- Trust signals: Accurate affiliation, publications, patents, awards and experience.
-- Avoid: Decorative motion or dense dashboards.
+## Content and navigation
+- Personal content remains in `_data/*.yaml`, bundled at build time. Static assets are under `public/assets/`.
+- About: three paragraphs ordered by research question, academic background/mentors, and current industrial work. Preserve Prof. Hyunjung Shim and mentors Song Park, Byeongho Heo, Dongyoon Han. Use original bold and number-list inline emphasis for the research focus, limited supervision, and compact representations.
+- Homepage uses Featured Projects, following the user’s 2026-10-10 direction, with a curated first/co-first-author selection in profile.featured_publications. All 12 papers remain on Publications. Publications groups conference proceedings, journal articles, and preprints with original-style collapse controls.
+- Separate pages: About `/`, Publications `/publications/`, Experience `/experience/`, Awards `/awards/`, Contact `/contact/`.
+- Experience: 5 entries, existing mentors and small organization logos. Awards: 3 plain entries. Publications includes a Patents section with 1 entry.
+- Email: mh315.lee@samsung.com. No CV link, ML monogram, or reviewer activity section.
+- All 12 previews use original paper figures or author-maintained homepage/repository images. The EPS++ and NCLS concept overviews were replaced with original figures from author-provided PDFs on 2026-10-10. Provenance in `public/assets/research/SOURCES.md`.
 
-## Product goals
-- Help visitors understand current research, find papers and contact the researcher.
-- CV links are excluded at the user's request.
-- Success signals: Research focus and email are discoverable in the header; sections are reachable on phones and with a keyboard.
+## Compatibility adaptations
+- Astro 7 replaces original Astro 2. Tailwind 3 and DaisyUI 3 retain the original template's class/theme behavior.
+- Legacy `@astrojs/image` calls were replaced with native image tags using local media, dimensions, lazy loading, alt text, and contain sizing.
+- Author HTML comes from the existing local YAML rather than Meng Chen's author-name array. Personal links replace the original social accounts.
+- Small accessibility-only stylesheet provides skip link, focus, reduced motion, social control sizing, and overflow fixes; it does not recolor or redesign the template.
+- Original MIT notice retained in `licenses/Astrofy-MIT.txt`.
 
-## Personas and jobs
-- Assumed primary visitors: Researchers, collaborators and professional contacts.
-- Jobs: Scan research interests, find publications/code and read career history.
-- Contexts: Desktop and mobile, including keyboard and assistive technology use.
+## Validation
+- Static build, HTTP routes/assets, source comparison, and whitespace checks are available. Browser screenshot/interaction verification remains unavailable; do not claim rendered desktop/mobile validation.
+- Local Astro server: http://127.0.0.1:4000. GitHub Pages uses Node and `dist/`.
 
-## Information architecture
-- Navigation: About, Publications, Patents, Awards, Experience.
-- Route: One page with section anchors.
-- Hierarchy: Profile and research focus; introduction; publications grouped by year; patents; awards; experience.
-- User decision: Display all papers uniformly, without selected-paper labels, backgrounds or borders.
+## Author names
+- Display all publication authors with their verified full names, in source order. Minhyun Lee is bold and underlined as in the original template; preserve existing equal-contribution and corresponding-author markers.
+- Author-line overrides in `_data/publication_authors.json` prevent Scholar imports from restoring abbreviations. Seonho Lee and Seungho Lee are distinct authors.
 
-## Design principles
-- Use warm neutral text with one restrained green link accent and preserve the data-driven Jekyll structure.
-- Make reading and navigation easier at every width.
-- Group the complete bibliography by year; use consistent styling for every paper.
+## Venue labels
+- Use the original Meng Chen card’s italic full venue line followed by a bold abbreviation/year line. Homepage uses only the short venue as in Meng Chen’s original; Publications shows both lines. Display names and year templates are in `_data/publication_venues.yaml`; original citation metadata stays intact.
 
-## Visual language
-- Color: Warm ivory background (#f8f7f3), dark green-gray text (#26352f), muted metadata (#626b64), and one forest-green link/focus accent (#285c4d), coordinated with the existing harbour photograph.
-- Typography: System sans-serif body at 16px, metadata at least 14px, publication titles at 18px. Georgia name at 44–76px and section headings at 27–30px provide a distinct editorial hierarchy; the research headline is 24–30px, with a short central statement.
-- Layout: Maximum 1040px. Desktop sections pair a 176px title column with the content column; at 749px and below, headings sit above their content. Publications keep uniform year groups and resource links. Ample space separates sections; fine rules separate records.
-- Shape: Existing photograph in a subtly angled white mat, with an offset sage backing and small location caption. Geometric annotation marks surround the photograph; no shadow.
-- Motion: Reduced-motion-aware smooth navigation and subtle link color transitions; no decorative entrance animation.
-- Imagery: Existing environmental portrait at 320px including its mat on wide desktop and 180px on narrow phones. Preserve its full composition. Three conceptual SVG diagrams remain geometric cues, not scientific results.
-- Display type: Georgia for the name, research headline, section titles, and footer signature; system sans-serif for detailed research and career content.
+## Template spacing fidelity
+- About uses inline text-lg runs separated by two line breaks, matching the original rather than block paragraphs with mt-5.
+- Preserve original main sizing and compact publication resource links; do not add a 44px minimum height to paper links, which changes row rhythm.
 
-## Components
-- Reuse: Portrait, section navigation, publication data, visible focus and skip link.
-- Change: Name leads the profile without an eyebrow or duplicate identity bar. The short headline states the research question; About connects it to current work; three concise research themes give concrete examples. Resource links use shared functional icons; academic background and mentor links live in Experience.
-- States: Hover, keyboard focus, section anchor target and navigation current-section indicator.
-- Ownership: `libs/custom/my_css.css` owns overrides and tokens; `_data/` owns content.
+## Featured Projects selection (2026-10-10)
+- Newest-first: MaskRIS (TMLR 2025), SeiT++ (ECCV 2024), AMN (CVPR 2022), EPS (CVPR 2021); all have Minhyun Lee as a first/co-first author.
+- Google Scholar profile retrieved directly on 2026-10-10: EPS 402 citations, AMN 143, PsyNet 44, EPS++ 38, HybridMatch 13, SeiT++ 5, MaskRIS 4. Counts are a dated selection reference, not displayed or automatically updated.
+- Selection balances established citation impact (EPS/AMN), storage-efficient representation learning (SeiT++), and vision-language segmentation (MaskRIS). EPS++ overlaps the EPS research line; PsyNet and HybridMatch cover older localization/landmark work.
+- Keep the curation independent of publication array positions and Scholar imports. This supersedes the previous no-Featured label direction for the homepage only.
 
-## Accessibility
-- Target: WCAG 2.2 AA-informed implementation; full conformance is not established by this change.
-- Keyboard: Visible focus for every link; skip link to main content.
-- Readability: Preserve contrast; enlarge compact labels and controls.
-- Scrolling: Root scroll padding accommodates the sticky navigation for heading links and keyboard focus. Respect native page zoom and scrolling.
-- Semantics: One h1, h2 section headings, h3 year headings, h4 paper headings inside year groups; patents use h3.
-- Motion: No dependency on animation or hover to reveal information; respect reduced-motion preferences for scrolling.
+## Contact
+- Lead with a welcoming invitation to questions, discussions, and coffee chats and a body-size email address. Use quiet horizontal rules, a mailto address with an adjacent small copy icon, and an editorial list of external profiles with descriptions and outward arrows.
+- Preserve original template colors and type; avoid cards, fabricated office/location details, or unsupplied claims of collaboration availability. Copy feedback is announced, with text-selection fallback; mailto works without JavaScript.
 
-## Responsive behavior
-- Support narrow phones through desktop without fixed-width content overflow.
-- Header: Name and research headline beside a matted portrait on desktop; compact portrait follows the profile copy on narrow phones. Name and headline sizes decrease progressively with width.
-- Navigation: Wrapping links on mobile, sticky row from 750px; anchor spacing accounts for the sticky bar.
-- Experience and awards: Experience dates sit beside content from 1000px and above, then above content at narrower widths. Award dates sit to the right, then below the title/details on phones. A thin career spine and small markers connect experience entries; awards use compact text rows with quiet dates and fine separators.
-- Touch: Links with approximately 44px minimum control height and spaced icon targets.
+- Contact accents: original number-list highlights for questions/discussion, blue coffee-chat text with a small outlined cup, matching mail icon, and monochrome profile logos reused from the sidebar SVGs (public/assets/icons). Keep the email at body size.
 
-## Interaction states
-- Loading: Static HTML remains readable while fonts load.
-- Empty: Optional email/social links are rendered only when configured.
-- Error: Missing assets must be identified during build verification.
-- Success: Section links reach headings, paper links open publications and email uses mailto.
-- Disabled: Not applicable.
-- Slow network: System font fallback; content and section links work without JavaScript. The current-section indicator is progressive enhancement.
+## Awards
+- Editorial list with thin horizontal rules, small blue outlined trophy/medal icons, and selective blue emphasis on award distinctions. Dates align right on larger screens and below the text on small screens. Preserve all three factual titles/descriptions; no cards, date badges, oversized trophies, or invented achievement descriptions.
 
-## Content voice
-- Tone: Concise, factual first-person English. The central question is learning from imperfect data. Keep educational history and mentor details in Experience; connect research to current industrial applications in About.
-- Research themes explain the questions behind the publication list; do not invent interests, project outcomes or impact claims.
-- Preserve publication titles, author attribution and existing research claims.
-- Label undated publications as Preprints instead of displaying a year of zero.
+## Website dates
+- Repository created and initial commit: 2024-01-03 (GitHub API and git history). Sidebar shows Created: Jan 3, 2024 and a manually maintained last-content-update date from main_info.yaml. Footer copyright starts in 2024. Do not use a rebuild date as a content-update date. Exact first public deployment has not been established.
 
-## Implementation constraints
-- Jekyll/Liquid and local CSS; no new dependencies or external font requests.
-- Keep Google Scholar importer output compatible.
-- Exclude this brief from published assets.
-- Validate build, rendered content, heading structure and CSS; screenshot verification requires a connected browser.
-- Refinement tools: Impeccable 4.5.0 and Vercel web-design-guidelines, installed outside this repository. Apply their relevant guidance under this brief; avoid hooks, frontend packages, or external font dependencies.
+- Patents reuse HorizontalCard: plain bold title, full inventor names with Minhyun Lee bold/underlined, italic details, bold patent reference/year, and Patent resource link. Section heading/collapse controls match publication categories; no placeholder thumbnail. Inventors verified against https://patents.justia.com/patent/11798171.
 
-## Open questions
-- Google Scholar direct HTTP retrieval succeeded on 2026-10-05 after the web tool returned HTTP 429. Observed citation counts: Railroad Is Not a Train (EPS) 402; Threshold Matters 143; PAMI Saliency 37; SeiT++ 5; MaskRIS 4. Profile: https://scholar.google.com/citations?user=2hUlCnQAAAAJ&hl=en&cstart=0&pagesize=100.
-- [ ] Owner: reviewer. Check rendered desktop/mobile screenshots when a browser becomes available.
+- Featured Projects only: render two non-interactive topic tags below each title, using blue text on a pale blue background. Keywords live in profile.featured_keywords; full Publications retains citation-only cards.
 
-## Current refinement
-- User feedback: Previous spacing and alignment changes did not create enough visual distinction. Maintain simple & professional while making the page feel deliberately designed.
-- Direction: Warm editorial academic portfolio, led by the personal photograph and serif typography, with a consistent section-title rail. No new factual claims, selected-paper emphasis, CV links, or reviewer list.
-- Validation: Local Jekyll build and HTTP serving can be checked. A connected browser is still required for desktop/mobile visual confirmation.
-- Latest feedback: Keep the approved colors, but add visible graphic character. The portrait now has sparse-point, contour, and orthogonal layout geometry; these are conceptual decoration, hidden from assistive technology, not scientific results. Research focus occupies a full-width sage band with larger diagrams and unboxed columns. A restrained experience spine adds chronological rhythm. No new content claims or dependencies.
+## Experience hierarchy
+- Each entry separates role/degree (bold text-lg), organization (body size), and dates (muted text-sm). Former organization names use a separate former_name field and a quiet inline note. Preserve original timeline, organization logos, and mentor links.
 
-## Personal identity and icons
-- User decision: No ML monogram. The hero name is the primary identity, with the original PNG favicon. Keep functional link icons.
-- A local SVG include owns an 18px, 1.6px-stroke icon family for email, scholarly profiles, code, documents, and navigation. Icons accompany visible text and are hidden from assistive technology. Profile icons are functional symbols rather than a claim to official brand artwork.
-- No duplicate identity row or redundant Publications shortcut. Preserve 44px link targets and the existing palette. No icon font, package, remote request, or image generation is needed.
+## Featured thumbnail frames
+- Featured Projects use 13rem-wide 16:9 white frames with .25rem inset and contain sizing, matching the original compact template dimensions. The larger 15rem/4:3 variant was rejected by the user. Click opens the original full-size figure in a new tab.
+- Original image files and full-publication 13rem/16:9 styling remain intact. Differing figure proportions naturally leave different whitespace; do not crop diagrams to force equal content height.
 
-## Awards treatment
-- Small type, fine separators, and quiet dates. No emblems, colored award backgrounds, or display typography: earlier treatments were too ornate for the user.
-- Explain AIC as AI Center in the institution line. Keep the award names unchanged; their internal significance has not been confirmed and must not be invented.
+## Social sharing
+- Default Open Graph/Twitter preview is public/assets/social/preview.png (1200×630), rendered from its SVG source. Typography, #f9f9f9 background, and blue accent follow the site. Include name, research headline, verified role/affiliation, and canonical domain.
+- Share titles include the owner’s name on every route; image URLs are absolute. Preview becomes publicly accessible only after deployment.
 
-## Experience logos
-- Use locally stored Samsung, NAVER, and Yonsei assets from their official websites. Preserve original colors and aspect ratios; sources are recorded in `assets/organizations/SOURCES.md`.
-- User correction: The colored left-side logos felt visually inconsistent. Use official monochrome variants as small supporting marks to the right of institution names. Samsung uses its transparent header wordmark instead of the blue square. Institution names, roles, and descriptions share a single left edge. Logos have empty alt text because adjacent headings already identify the organization; images are lazy-loaded with intrinsic dimensions.
+## About motion
+- One focal moment beside the research headline: seven scattered observations settle into a sparse 3×3 structure, leaving two outlined gaps. Blue SVG is 48px (40px mobile).
+- CSS-only .8s movement and line drawing run once per page load; no looping, hover replay, dependency, or delayed content reveal. Static final geometry is the fallback and reduced-motion state. Decorative SVG is hidden from assistive technology.
 
-## Date typography
-- User correction: Separate, enlarged year/month stamps felt excessive. Use quiet 13px sans-serif dates in muted gray, on a single line where space allows (Apr 2026; Dec 2024 – Present).
-- Experience dates may wrap naturally on narrow date rails. Keep ISO month fields and semantic `<time>` elements; do not add special year colors, display fonts, backgrounds, or badges.
+## Supporting icons
+- Contact coffee icon is static at 18px; Awards icons are static at 24px. Hover animations and the enlarged 32px variant were removed at the user’s request. The About headline motif remains unchanged.
 
-## Advisor and mentor attribution
-- User preference: Include Prof. Hyunjung Shim and NAVER mentors Song Park, Byeongho Heo, and Dongyoon Han in the About research narrative, with their existing homepage links. Their attribution may also remain in Experience; do not remove it merely to reduce repetition.
+## Color refinement (2026-10-10)
+- Keep the Meng Chen palette: #f9f9f9 canvas, #f2f2f2 highlight/sidebar surfaces, #3b60d9 accent, #e6e5e5 dividers.
+- Topic tags now use the same gray highlight background as About. Headings/name use #222, body/menu #444, secondary text/sidebar dates #666. The active menu uses darker text and a slightly stronger weight.
+- Contact profile names use body color; arrows and existing accent icons remain blue. Global heading color and sidebar text hierarchy are intentional refinements to the original stylesheet.
 
-## Content refinement after review
-- About uses three paragraphs: current role and research question; concrete academic research and NAVER training work; current industrial application and the connecting theme. The user prefers a fuller narrative over the earlier two-paragraph summary. Experience owns degree, advisor, mentor, and date details. Research themes remain short, concrete examples. Publications has no redundant research-summary paragraph.
-- Current Samsung work is described as semiconductor data modeling and layout generation, without additional claims about reliability, deployments, or impact.
-- Publication venues use concise labels from `_data/publication_venues.yaml`; the original metadata is retained. Title corrections also live in Scholar import overrides so a future import preserves casing and linked resources. No import was run.
-- Verified title casing: [Threshold Matters](https://openaccess.thecvf.com/content/CVPR2022/html/Lee_Threshold_Matters_in_WSSS_Manipulating_the_Activation_for_the_Robust_CVPR_2022_paper.html), [Railroad Is Not a Train](https://openaccess.thecvf.com/content/CVPR2021/html/Lee_Railroad_Is_Not_a_Train_Saliency_As_Pseudo-Pixel_Supervision_for_CVPR_2021_paper.html), [PsyNet](https://ojs.aaai.org/index.php/AAAI/article/view/6615), and IEEE-supplied Crossref metadata for [HybridMatch](https://doi.org/10.1109/ACCESS.2023.3257180) and [Saliency](https://doi.org/10.1109/TPAMI.2023.3273592).
-- Browser verification remains unavailable; the user confirmed Chrome is not installed. Do not install a browser or claim screenshot validation as part of this refinement.
+- Author markers (* equal contribution, † corresponding author) use shared superscript styling at 75% size with zero line-height, preserving the author-line spacing and Scholar-import HTML.
+
+- Featured Projects links to the full list with “View all publications”, blue text, a thin underline, and a small forward arrow. Keep it a lightweight text link beside the heading with wrapping on narrow screens.
+
+- Publications/Patents section controls use small outlined circular chevrons (28px visual, 44px target). Down means expanded; right means collapsed. ARIA labels and expanded state track the section; reduced-motion settings suppress the short rotation transition.
+
+- Featured frames position the image absolutely within the inset, so tall intrinsic image dimensions cannot stretch the 16:9 frame. Contain sizing preserves the complete figure; overflow is bounded by the frame.
+
+- Sidebar email: body-colored small text with a 16px blue envelope and quiet underline. Add a small separation from affiliation; retain mailto and a 44px click target. No filled button or oversized address.
+
+## Light / dark themes (2026-10-10)
+- The top-right sun/moon slider appears on desktop and mobile. Keyboard-operable switch, 44px height, visible focus, and reduced-motion support; no added dependency.
+- Initial theme follows the OS until explicitly chosen. Store the choice in localStorage; apply it inline before paint, retain across pages, and sync between tabs. Storage failure retains switching for the current page.
+- Light keeps the original palette. Dark uses #191b20 canvas, #22252c surfaces, #363b45 dividers, #f1f2f5 headings, #d3d6dc body, #a8aeb9 secondary text, and #95afff accent.
+- Shared CSS roles cover page text, links, keywords, awards, contact, timeline, sidebar, focus, selection, and resource states. DaisyUI uses matching dark surfaces; research thumbnails remain white, brand logos use a small light backing, monochrome contact logos invert.
+
+- Theme slider motion: accent-filled 32px thumb slides over 420ms with subtle settling, while sun/moon icons rotate slightly and change emphasis. Keep the 76×44px control size; CSS transitions can reverse during rapid toggles, and reduced-motion changes state immediately.
+
+- Dark-mode sun icon retains full opacity and full 16px size, with heading-color contrast and a 1.8px stroke; inactive must remain clearly discoverable.
+- Theme icons now have small expressions: round smiling sun and sleepy crescent moon, 18px with rounded strokes. Keep both at full size; only a gentle 12-degree rotation accompanies switching. This replaces the previous 16px / 45-degree sun treatment.
+- Experience logo sizing: company wordmarks share a 6.5rem width and natural aspect ratio; university seals use 2.5rem square dimensions. At ≤480px, use 5.5rem / 2.25rem respectively to leave more room for text. Placement and theme treatment remain unchanged.
+
+- Experience uses official color variants at full opacity: Samsung Blue #1428A0, NAVER green, Yonsei blue seal. Preserve the newly balanced sizes and current dark-mode light backing. Asset provenance is in organizations/SOURCES.md.
+
+- Featured thumbnail clicks now open the paper landing page (paper.paper_pdf, same destination as Paper) in a new tab, replacing the full-size figure link. Preserve thumbnail sizing; link labels announce the destination and new tab.
+- Featured thumbnail frames use 6px rounded corners, a thin border, and a 200ms border-color transition to accent on hover/focus. Dark mode uses #89909c for the frame border; keyboard focus adds a 2px outline with 4px offset. Existing 13rem/16:9 dimensions, image containment, and new-tab paper destinations stay intact. Global reduced-motion disables the transition.
+
+- About prose affiliations (Yonsei University, NAVER AI Lab, Samsung Electronics AX/PI Center) use medium-weight teal text with a subtle teal background: #256c68 on #e7f1ee in light, #8acbc3 on #243b3a in dark. Match research highlight padding and 4px corners; clone the decoration when an affiliation wraps. Research topics retain the blue number-list highlight; mentor links retain their existing blue. Sidebar and Experience affiliation styling stays unchanged.
