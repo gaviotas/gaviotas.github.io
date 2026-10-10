@@ -113,7 +113,8 @@ import './HorizontalCard.scss'
 )}
 
 <style>
-  .featured-preview { position: relative; display: block; width: 13rem; max-width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #fff; border: 1px solid var(--border-color); border-radius: 6px; transition: border-color .2s ease-out; }
+  .featured-preview { position: relative; display: block; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #fff; border: 1px solid var(--border-color); border-radius: 6px; transition: border-color .2s ease-out; }
+  @media (min-width: 768px) { .featured-preview { width: 13rem; } }
   :global([data-theme='profile-dark']) .featured-preview { border-color: #89909c; }
   .featured-preview-image { position: absolute; inset: .25rem; display: block; width: calc(100% - .5rem); height: calc(100% - .5rem); object-fit: contain; }
   .featured-preview:hover, .featured-preview:focus-visible { border-color: var(--accent-color); }

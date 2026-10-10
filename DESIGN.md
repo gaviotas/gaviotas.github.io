@@ -111,3 +111,5 @@
 - Featured thumbnail frames use 6px rounded corners, a thin border, and a 200ms border-color transition to accent on hover/focus. Dark mode uses #89909c for the frame border; keyboard focus adds a 2px outline with 4px offset. Existing 13rem/16:9 dimensions, image containment, and new-tab paper destinations stay intact. Global reduced-motion disables the transition.
 
 - About prose affiliations (Yonsei University, NAVER AI Lab, Samsung Electronics AX/PI Center) use medium-weight teal text with a subtle teal background: #256c68 on #e7f1ee in light, #8acbc3 on #243b3a in dark. Match research highlight padding and 4px corners; clone the decoration when an affiliation wraps. Research topics retain the blue number-list highlight; mentor links retain their existing blue. Sidebar and Experience affiliation styling stays unchanged.
+
+- Featured preview width follows Publications on mobile: 100% of the image column below 768px, 13rem from 768px upward. Keep the 16:9 contained image, rounded border, and paper-page link.
