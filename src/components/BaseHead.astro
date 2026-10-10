@@ -24,7 +24,7 @@ const defaultImage = image === '/assets/social/preview.png';
   (() => {
     let preference = null;
     try { preference = localStorage.getItem('profile-theme'); } catch {}
-    const dark = preference === 'dark' || (preference !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const dark = preference === 'dark';
     document.documentElement.dataset.theme = dark ? 'profile-dark' : 'lofi';
   })();
 </script>

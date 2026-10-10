@@ -95,7 +95,7 @@
 
 ## Light / dark themes (2026-10-10)
 - The top-right sun/moon slider appears on desktop and mobile. Keyboard-operable switch, 44px height, visible focus, and reduced-motion support; no added dependency.
-- Initial theme follows the OS until explicitly chosen. Store the choice in localStorage; apply it inline before paint, retain across pages, and sync between tabs. Storage failure retains switching for the current page.
+- Initial theme defaults to light regardless of the OS setting; explicitly selected dark mode is remembered. Store the choice in localStorage; apply it inline before paint, retain across pages, and sync between tabs. Storage failure retains switching for the current page.
 - Light keeps the original palette. Dark uses #191b20 canvas, #22252c surfaces, #363b45 dividers, #f1f2f5 headings, #d3d6dc body, #a8aeb9 secondary text, and #95afff accent.
 - Shared CSS roles cover page text, links, keywords, awards, contact, timeline, sidebar, focus, selection, and resource states. DaisyUI uses matching dark surfaces; research thumbnails remain white, brand logos use a small light backing, monochrome contact logos invert.
 

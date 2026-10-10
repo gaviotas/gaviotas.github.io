@@ -29,11 +29,10 @@
 
 <script>
   const toggle = document.getElementById('theme-toggle') as HTMLButtonElement | null;
-  const system = window.matchMedia('(prefers-color-scheme: dark)');
   let preference: string | null = null;
   try { preference = localStorage.getItem('profile-theme'); } catch {}
   function apply() {
-    const dark = preference === 'dark' || (preference !== 'light' && system.matches);
+    const dark = preference === 'dark';
     document.documentElement.dataset.theme = dark ? 'profile-dark' : 'lofi';
     toggle?.setAttribute('aria-checked', String(dark));
   }
@@ -42,7 +41,6 @@
     try { localStorage.setItem('profile-theme', preference); } catch {}
     apply();
   });
-  system.addEventListener('change', apply);
   window.addEventListener('storage', event => {
     if (event.key === 'profile-theme' || event.key === null) {
       preference = event.newValue;
