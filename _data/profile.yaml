@@ -44,10 +44,11 @@ research_areas:
       Semiconductor data modeling and generative methods for structured
       layout patterns.
 
-# Curated first/co-first-author projects; display newest first.
+# Curated first/co-first-author projects; one per year, newest first.
 featured_publications:
   - "MaskRIS: Semantic Distortion-aware Data Augmentation for Referring Image Segmentation"
   - "SeiT++: Masked Token Modeling Improves Storage-efficient Training"
+  - "Saliency as Pseudo-Pixel Supervision for Weakly and Semi-Supervised Semantic Segmentation"
   - "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds"
   - "Railroad Is Not a Train: Saliency As Pseudo-Pixel Supervision for Weakly Supervised Semantic Segmentation"
 
@@ -58,6 +59,9 @@ featured_keywords:
   "SeiT++: Masked Token Modeling Improves Storage-efficient Training":
     - "Storage-Efficient Learning"
     - "Masked Token Modeling"
+  "Saliency as Pseudo-Pixel Supervision for Weakly and Semi-Supervised Semantic Segmentation":
+    - "Weak & Semi-Supervision"
+    - "Saliency Guidance"
   "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds":
     - "Weak Supervision"
     - "Threshold Robustness"
